@@ -12,7 +12,16 @@ var gm=require("gm")
 //connect to the database
 var mongoose=require("mongoose")
 //mongoose.connect("localhost/coolcars")
-mongoose.connect("mongodb://localhost:27017/coolcars", { useNewUrlParser: true });
+//mongoose.connect("mongodb://localhost:27017/coolcars", { useNewUrlParser: true });
+mongoose.connect('mongodb+srv://developerlin:Long2021...@cluster0.r4ghm.mongodb.net/coolcars?retryWrites=true&w=majority', { 
+	useNewUrlParser: true,
+	useCreateIndex:true
+}).then(()=>{
+	console.log("Connect to db success");
+}).catch(err=>{
+	console.log("ERROR",err.message);
+});
+
 
 //import the model file
 var Car=require("./models/Car")
@@ -331,6 +340,9 @@ app.post("/addCar",function(req,res){
 })
 
 //set listion port
-app.listen(3000,(err)=>{
-    console.log("run at 3000 port")
-})
+// app.listen(3000,(err)=>{
+//     console.log("run at 3000 port")
+// })
+
+app.listen(process.env.PORT, '0.0.0.0');
+console.log("The app is running on server!")
