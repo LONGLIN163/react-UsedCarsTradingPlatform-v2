@@ -1,0 +1,82 @@
+@import '../../../../node_modules/antd/dist/antd.less';
+ 
+@primary-color:red;
+
+
+.ant-row{
+    //line-height: 30px;
+    height: 30px;
+    margin-bottom: 10px;
+}
+.ant-cascader-picker{
+    width: 400px;
+}
+em{
+    margin-right: 10px;
+    font-style: normal;
+    cursor: pointer;
+    &:hover{
+        color: red;
+    }
+    z-index: 100;
+    &.cur{
+        //color:yellow;
+        color:@primary-color;
+    }
+
+}
+.lastRow{
+    height: 200px;
+    //background-color:#d4cccc54;
+    //background-color:gold;
+
+}
+.ant-tag{
+    margin-bottom: 20px;
+}
+
+
+.tableBox{
+    padding-top: 20px;
+}
+.previewThumbnail{
+    width: 180px;
+    height: 120px;
+    z-index: -1000;
+}
+
+:root .ant-table-column-sorter .anticon-caret-up{
+    //font-size:20px !important;
+    font-size:50px;
+    z-index: -1000;
+    //background-color: red;
+};
+
+.table-operations {
+    margin-bottom: 16px;
+  }
+  
+  .table-operations > button {
+    margin-right: 8px;
+  }
+
+
+
+.myModal{
+    ul{
+        padding-bottom: 40px;
+        list-style: none;
+        li{
+            float: left;
+            padding: 4px 6px;
+            border: 1px solid white;
+            margin-left: 10px;
+            margin-bottom: 6px;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+    }
+    .cl{
+      clear: both;
+    }
+}

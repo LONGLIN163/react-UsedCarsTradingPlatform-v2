@@ -1,0 +1,127 @@
+@import '../../../../node_modules/antd/dist/antd.less';
+.content_box{
+    padding-top: 30px;
+}
+.hd{
+    padding:10px 0;
+}
+.uploadFild{
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    background-color: red;
+    font-size: 30px;
+    text-align: center;
+    line-height: 25px;
+    color: white;
+    cursor: pointer;
+    &:hover{
+        background-color: black
+    }
+}
+
+.imgsbox{
+    border: 2px dotted gray;
+    padding: 5px;
+    min-height: 100px;
+    overflow: hidden;
+    
+    .preDiv{
+        width: 100px;
+        height: 100px;
+        border: 1px solid green;
+        float: left;
+        margin-left: 10px;
+        margin-bottom: 10px;
+        background-position: center center;
+        background-size: cover;
+        position: relative;
+
+        em{
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: url(/images/loading2.svg);
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%,-50%)
+        }
+
+        i {
+            position: absolute;
+            top:40%;
+            display: block;
+            width: 20px;
+            height: 20px;
+            text-align: center;
+            color: white;
+            background: rgba(0, 0, 0, 0.6)
+        }
+
+        b {
+            position: absolute;
+            top:0;
+            right: 0;
+            width: 20px;
+            height: 20px;
+            border-radius: 10px;
+            background-color: gray;
+            font-size: 15px;
+            text-align: center;
+            line-height: 16px;
+            color: white;
+            cursor: pointer;
+            display: none;
+        }
+        &:hover b{
+            display: block;
+        }
+
+
+    }
+
+    
+    &.cur{
+        border: 3px dotted red;
+    }
+    img{
+        width: 20%;
+    }
+}
+
+.btn_box{
+    padding-top: 30px;
+}
+
+.filebox{
+    height: 300px;
+    overflow-y: scroll;
+    border:1px solid #333;
+    padding: 10px;
+
+    .somerow{
+        padding: 10px 0;
+        line-height: 30px;
+        .tools{
+            display: none;
+        }
+        &:hover .tools{
+            display: block;
+            a{
+                margin-right: 6px;
+            }
+        }
+    }
+    .somerow:nth-child(2n){background-color: #eee;
+    }
+
+}
+
+.icons{
+    width: 80px;
+    height: 80px;
+}
+.iconss{
+    width: 30px;
+    height: 30px;
+}
