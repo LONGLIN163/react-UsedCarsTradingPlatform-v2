@@ -2,7 +2,7 @@
   "name": "myreactproject",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "heroku-prebuild": "npm install --only=dev",
     "start": "node app.js",
