@@ -1,9 +1,6 @@
 import React from 'react'
 import { connect } from 'dva';
-
 import BuyPage from '../../container/BuyPage'
-
-
 
 class Community extends React.Component {
   constructor(props){

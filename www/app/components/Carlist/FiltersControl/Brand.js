@@ -3,8 +3,6 @@ import { Tabs } from 'antd';
 const TabPane = Tabs.TabPane;
 import {connect} from 'dva'
 import classnames from 'classnames'
-// import './calist.less'
-
 
 class Brand extends React.Component {
     constructor(props){
@@ -15,15 +13,11 @@ class Brand extends React.Component {
         }
 
         this.loadServer((result)=>{
-          console.log("loadServer---",result)
           this.setState({
             options:result
           })
-          //console.log("loadServer2---",this.state.options)
         })
 
-        //console.log("brandprops---",props)
-        //console.log("brandoptions---",this.state.options)
     }
     
   async loadServer(callback){

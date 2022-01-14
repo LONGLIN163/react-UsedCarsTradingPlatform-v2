@@ -1,20 +1,11 @@
 import React from 'react'
 import moment from 'moment'
 
-
-
 export const id = {
     title: 'id',
     dataIndex: 'id',
     key: 'id',
     sorter: true
-    // ,
-    // sortOrder: (() => {
-    //     if (this.props.sortInfo.sortBy == 'id') {
-    //         return this.props.sortInfo.sortDirection == 1 ? 'ascend' : 'descend'
-    //     }
-    //     return false;
-    // })()
 }
 export const brand = {
     title: 'brand',
@@ -49,13 +40,7 @@ export const buydate = {
         return <span>{moment(text).format("YYYY-MM-DD")}</span>
     },
     sorter: true
-    // ,
-    // sortOrder: (() => {
-    //     if (this.props.sortInfo.sortBy == 'buydate') {
-    //         return this.props.sortInfo.sortDirection == 1 ? 'ascend' : 'descend'
-    //     }
-    //     return false;
-    // })()
+
 }
 export const displacement = {
     title: 'displacement',
@@ -72,26 +57,12 @@ export const price = {
     dataIndex: 'price',
     key: 'price',
     sorter: true
-    // ,
-    // sortOrder: (() => {
-    //     if (this.props.sortInfo.sortBy == 'price') {
-    //         return this.props.sortInfo.sortDirection == 1 ? 'ascend' : 'descend'
-    //     }
-    //     return false;
-    // })()
 }
 export const km = {
     title: 'km',
     dataIndex: 'km',
     key: 'km',
     sorter: true
-    // ,
-    // sortOrder: (() => {
-    //     if (this.props.sortInfo.sortBy == 'km') {
-    //         return this.props.sortInfo.sortDirection == 1 ? 'ascend' : 'descend'
-    //     }
-    //     return false;
-    // })()
 }
 export const licenseplate = {
     title: 'licenseplate',

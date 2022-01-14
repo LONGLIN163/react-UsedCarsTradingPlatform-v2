@@ -4,8 +4,6 @@ import { connect } from 'dva';
 import { Row, Col } from 'antd';
 import { Button } from 'antd';
 
-
-
 class CarlistKmSlider extends React.Component {
     constructor(props){
         super(props)

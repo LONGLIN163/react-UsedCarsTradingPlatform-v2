@@ -6,7 +6,6 @@ import { connect } from 'dva';
 class CarlistCheckbox extends React.Component {
   constructor(props){
       super(props)
-
   }
   render() {
     return (
@@ -17,10 +16,8 @@ class CarlistCheckbox extends React.Component {
                        return {"label":item,"value":item}
                    })
                 }
-                //value={this.props.filters.color}
                 value={this.props.filters[this.props.propsname]}
                 onChange={(value)=>{
-
                     //change the value on target property
                     this.props.dispatch({
                         "type":"carlist/changeFilter",

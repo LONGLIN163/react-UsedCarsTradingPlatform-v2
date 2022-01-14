@@ -11,8 +11,6 @@ import './carlist.less'
 class Carlist extends React.Component {
   constructor(props){
     super(props)
-    //call defalt data
-    //props.dispatch({"type":"init"})
     props.dispatch({"type":"carlist/init"})
   }
   

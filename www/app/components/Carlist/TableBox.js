@@ -25,8 +25,6 @@ class TableBox extends React.Component {
       isShowModal: false,
       cols: ["id", "thumnails", "km", "price","color", "buydate"]
     }
-    console.log("this.props.sortInfo.sortDirection1---------------", this.props.sortInfo.sortDirection)
-
   }
 
   componentDidMount(){
@@ -107,20 +105,13 @@ class TableBox extends React.Component {
           total: this.props.count,
           showSizeChanger: true//what if we want user chouse how many item show in each page???
         }}
-        onChange={(pagination, filters, sorter) => {
-          //console.log("sorter---------------", sorter)
-          //console.log("columnKey---------------", sorter.columnKey)
-          //console.log("sortDirection---------------", sorter.order)
-          //console.log("this.props.sortInfo.sortDirection2---------------", this.props.sortInfo.sortDirection)
-
-          //console.log("pagination",pagination)
+        onChange={(pagination, sorter) => {
           this.props.dispatch({
             "type": "carlist/changePageOrSort",
             "page": pagination.current,
             "pagesize": pagination.pageSize,
             "sortBy": sorter.columnKey,
             "sortDirection": sorter.order == 'ascend' ? 1 : -1
-            //"sortDirection":sorter.order=="ascend"?1:-1
           })
         }}
         rowKey="id"

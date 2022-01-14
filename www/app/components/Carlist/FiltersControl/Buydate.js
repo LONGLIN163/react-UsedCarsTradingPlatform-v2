@@ -2,16 +2,12 @@ import React from 'react'
 import { connect } from 'dva';
 import { DatePicker, Button,Row,Col} from 'antd';
 import moment from 'moment'
-
-
-const { MonthPicker, RangePicker, WeekPicker } = DatePicker;
-
+const { RangePicker } = DatePicker;
 
 class Buydate extends React.Component {
     constructor(props){
         super(props)
     }
-
 
   render() {
     const buydate=this.props.filters.buydate;
@@ -23,10 +19,7 @@ class Buydate extends React.Component {
               <RangePicker
                   allowClear={false} 
                   value={[moment(buydate[0]),moment(buydate[1])]}
-                  //value={[moment(this.props.filters.buydate[0]),moment(this.props.filters.buydate[1])]}
                   onChange={(value)=>{
-                      //value is an arr of moment obg,so we can get moment obj,and convert the time
-                      //console.log([value[0].unix()*1000,value[0].unix()*1000])
                       this.props.dispatch({
                           "type":"carlist/changeFilter",
                           "propsname":"buydate",
