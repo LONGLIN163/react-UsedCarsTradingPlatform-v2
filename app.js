@@ -1,18 +1,18 @@
 var express=require("express")
-
 var app=express()
-
 var formindable=require("formidable")
 var path=require("path")
 var fs=require("fs")
 var url=require("url")
 var gm=require("gm")
 
-
-//connect to the database
 var mongoose=require("mongoose")
-//mongoose.connect("localhost/coolcars")
-//mongoose.connect("mongodb://localhost:27017/coolcars", { useNewUrlParser: true });
+
+//******connect to local db******
+mongoose.connect("mongodb://localhost:27017/coolcars", { useNewUrlParser: true });
+
+//******connect to production db******
+/*
 mongoose.connect('mongodb+srv://developerlin:Long2021...@cluster0.r4ghm.mongodb.net/coolcars?retryWrites=true&w=majority', { 
 	useNewUrlParser: true,
 	useCreateIndex:true
@@ -21,13 +21,10 @@ mongoose.connect('mongodb+srv://developerlin:Long2021...@cluster0.r4ghm.mongodb.
 }).catch(err=>{
 	console.log("ERROR",err.message);
 });
-
+*/
 
 //import the model file
 var Car=require("./models/Car")
-
-
-
 
 //staticize www folder
 app.use(express.static("www"))
@@ -44,11 +41,8 @@ app.get("/carinfo/:id",(req,res)=>{
 
 //create a API that can get same brand or series cars info of a certain car
 app.get("/carlike/:id",(req,res)=>{
-        //get this id
         var id=req.params.id;
-        //check data from database
         Car.find({"id":id}).exec((err,results)=>{
-            //get this car's brand and series
                 var brand=results[0].brand
                 var series=results[0].series
                 //continue check with upper brand and series
@@ -339,10 +333,13 @@ app.post("/addCar",function(req,res){
     })
 })
 
-//set listion port
-// app.listen(3000,(err)=>{
-//     console.log("run at 3000 port")
-// })
+//******test port******
+app.listen(3000,(err)=>{
+    console.log("run at 3000 port")
+})
 
+//******production port******
+/*
 app.listen(process.env.PORT, '0.0.0.0');
 console.log("The app is running on server!")
+*/

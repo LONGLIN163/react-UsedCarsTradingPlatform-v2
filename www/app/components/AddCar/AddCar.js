@@ -1,5 +1,5 @@
 import React from 'react'
-import { Steps, Button, message,Row,Col} from 'antd';
+import { Steps, Button} from 'antd';
 const Step = Steps.Step;
 
 import Step1 from './Step1'
@@ -16,7 +16,6 @@ class AddCar extends React.Component {
     this.state = {
       current: 2
     };
-    console.log("/////////////////",props)
   }
 
   render() {
@@ -35,33 +34,20 @@ class AddCar extends React.Component {
     const checkStep1Disabled=()=>{
       var noError=true
       var step1=this.props.step1
-      console.log("step1",step1)
-      console.log([]==undefined)
       for(var k in step1){
-
-        //console.log("k",k.errors)
         
         if(step1[k].errors!=undefined){
-          //console.log("name---",step1[k].name,"errors---",step1[k].errors)
           noError=false
-          //console.log("noErrorfucccck---",noError)
         }
-        // else{
-        //   noError=true
-        // }
       }
-      console.log("noError222---",noError)
       return !noError
     }
-
-    //console.log("checccccccccccccccccck",checkStep1Disabled())
 
     const showButton=()=>{
        if(this.state.current==1){
          return <Button 
          type="primary"
          disabled={checkStep1Disabled()}
-         //disabled={false}
          onClick={()=>{
            this.setState({
              "current":2
@@ -72,13 +58,10 @@ class AddCar extends React.Component {
         return <Button 
         type="primary"
         onClick={()=>{
-          //alert($(".imgsbox").length)
-          //console.log($(".imgsbox"))
           var view=[]
           $(".imgsbox[data-album=view]").find("div.preDiv").each(function(){
             view.push($(this).data("pathname"))
           })
-          console.log(view)
 
           var inner=[]
           $(".imgsbox[data-album=inner]").find("div.preDiv").each(function(){
@@ -99,7 +82,6 @@ class AddCar extends React.Component {
           }
 
           var obj={view,inner,engine,more}
-          console.log("mmmmmmmmmmmmmmm",obj)
 
           //change global data
           this.props.dispatch({
@@ -132,11 +114,9 @@ class AddCar extends React.Component {
         </Steps>
         <div className="content_box">{steps[this.state.current-1].content}</div>
         <div className="btn_box">
-
                 {
                   showButton()
                 }
-
         </div>
       </SalePage>
     )

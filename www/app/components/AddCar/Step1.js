@@ -14,7 +14,6 @@ class Step1 extends React.Component {
     componentDidMount() {
         //get all the brand and series
         this.loadBrandAndSeries((brandAndSeries) => {
-            //console.log("brandAndSeries:::", brandAndSeries)
             var brandAndSeriesOption = []
             for (var k in brandAndSeries) {
                 brandAndSeriesOption.push({
@@ -45,20 +44,13 @@ class Step1 extends React.Component {
     render() {
         //create form package copo
         const WrappedRegistrationForm = Form.create({ 
-            // onValuesChange(props, allValues){
-                onFieldsChange:(props, fields)=>{
-                // console.log(props)
-                //console.log("fields",fields)
-                // console.log("value",Object.values(fields)[0])
-                // console.log("propsname",Object.keys(fields)[0])
-
+                onFieldsChange:(fields)=>{
                 this.props.dispatch({"type":"addCar/changeStep1","propname":Object.keys(fields)[0],"value":Object.values(fields)[0]})
             }
          })(Step1_form);
 
         return (
             <div>
-                {/* <h1>i am step 1</h1> */}
                 <h1>
                     <WrappedRegistrationForm brandAndSeriesOption={this.state.brandAndSeriesOption}></WrappedRegistrationForm>
                 </h1>

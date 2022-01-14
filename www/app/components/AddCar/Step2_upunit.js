@@ -23,7 +23,6 @@ export default class Step2_upunit extends React.Component {
                 //create instance of img
                 var image = new Image()
                 //local img url
-                //console.log(e.currentTarget.result)
                 image.src = e.currentTarget.result
                 //set div bgi
                 $div.css("background-image", `url(${image.src})`)
@@ -36,9 +35,6 @@ export default class Step2_upunit extends React.Component {
             uploadfiles(
                 files[i],
                 function (pathname) {
-                    //callback function,get randam file name
-                    //alert("Done--"+pathname)
-
                     //after finish upload,remove...
                     $div.find("em").remove()
                     $div.find("i").remove()

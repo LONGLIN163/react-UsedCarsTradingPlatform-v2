@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, Col, Row, Button,Modal,Progress,Input } from 'antd';
+import {  Col, Row, Progress,Input } from 'antd';
 
 export default class Step3_ModalItem extends React.Component {
     constructor(props){

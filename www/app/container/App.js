@@ -9,9 +9,7 @@ const {Header, Content, Footer, Sider,} = Layout;
 import './app.less'
 
 class App extends React.Component {
-    constructor(){
-        super()
-    }
+
   render() {
     return (
       <div>
@@ -29,7 +27,7 @@ class App extends React.Component {
                     this.props.dispatch(push(e.key))
                   }}
                 >
-                  <Menu.Item key="/">home</Menu.Item>
+                  <Menu.Item key="/">Home</Menu.Item>
                   <Menu.Item key="/buy/carlist">buy</Menu.Item>
                   <Menu.Item key="/sale/addcar">sale</Menu.Item>
                 </Menu>

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, Col, Row, Button,Modal,Progress } from 'antd';
+import { Button,Modal } from 'antd';
 import uploadfiles from './utils/uploadfiles'
 import Step3_ModalItem from './Step3_ModalItem'
 import Step3_filebar from './Step3_filebar'
@@ -51,12 +51,10 @@ class Step3 extends React.Component {
 
       for(var i=0;i<files.length;i++){
         let filename=files[i].name
-        console.log(filename)
         uploadfiles(
           files[i],
           function(){
-            //dong
-  
+            //done
           },
           function(e){
             //progress
@@ -109,7 +107,6 @@ class Step3 extends React.Component {
             <Modal
               title="Upload"
               visible={this.state.showModal}
-              //visible={true}
               onOk={()=>{
                 this.props.dispatch({"type":"addCar/changeStep3","arr":this.state.currentUpload})
                  this.setState({
@@ -155,7 +152,6 @@ class Step3 extends React.Component {
               destroyOnClose={true}
             >
            <Step3_rename 
-              // changeFileName={this.changeFileName.bind(this)}
               item={this.props.files.filter(item=>item.filename==this.state.renamedFilename)[0]}
            ></Step3_rename>
 

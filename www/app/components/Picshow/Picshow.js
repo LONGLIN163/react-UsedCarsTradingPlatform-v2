@@ -7,6 +7,7 @@ import Album from './Album'
 import Carlike from './Carlike'
 import Smallpics from './Smallpics'
 import BigImgbox from './BigImgbox'
+import App from '../../container/App'
 
 
 class Picshow extends React.Component {
@@ -19,13 +20,13 @@ class Picshow extends React.Component {
   render() {
     return (
       <div className="picshow">
+        <App></App>
         <BigImgbox></BigImgbox>
         <div className="rightPart">
           <Carinfo></Carinfo>
           <Album></Album>
           <Carlike></Carlike>
           <Smallpics></Smallpics>
-
         </div>
       </div>
     )

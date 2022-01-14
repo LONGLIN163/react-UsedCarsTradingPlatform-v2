@@ -2,10 +2,9 @@ import React from 'react'
 import { Steps } from 'antd';
 const Step = Steps.Step;
 import {
-  Form, Input, Tooltip, Icon, Cascader, Select, Row, Col, Checkbox, Button, AutoComplete,Radio,DatePicker 
+  Form, Input, Cascader, Select, Radio,DatePicker 
 } from 'antd';
 const Option = Select.Option;
-import { parse } from 'path';
 
 const RadioGroup = Radio.Group;
 
@@ -239,11 +238,8 @@ export default class Step1_form extends React.Component {
             {getFieldDecorator('price', {
               rules: [
                 {
-                  // "pattern": /^\d+$/, //regax way to limit number input
-
                   //input a number in a scope
                   validator: function(rule, value, callback){
-                    //console.log(value)
                     value=Number(value);//it gonna be NaN if value is not number,NaN can not be compared 
                     if(!(parseFloat(value)>=0&&parseFloat(value)<=100)){
                       callback("Please input number between 0-100");
@@ -251,7 +247,6 @@ export default class Step1_form extends React.Component {
                     }
                     callback()
                   }
-                  // "message": "Please input the number",
                 }, 
                 {
                     "required": true, "message": "Required",
@@ -270,8 +265,6 @@ export default class Step1_form extends React.Component {
             {getFieldDecorator('km', {
               rules: [
                 {
-                  // "pattern": /^\d+$/, //regax way to limit number input
-
                   //input a number in a scope
                   validator: function(rule, value, callback){
                     //console.log(value)
@@ -282,7 +275,6 @@ export default class Step1_form extends React.Component {
                     }
                     callback()
                   }
-                  // "message": "Please input the number",
                 }, 
                 {
                     "required": true, "message": "Required",

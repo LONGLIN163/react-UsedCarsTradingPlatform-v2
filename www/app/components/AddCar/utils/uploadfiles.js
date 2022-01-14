@@ -1,4 +1,3 @@
-//export default (file,callback1,callback2)=>{
 export default (file,callback1,callback2,url)=>{
  
        //local variable,cant use var
@@ -12,11 +11,9 @@ export default (file,callback1,callback2,url)=>{
 
        //callback function
        xhr.onload = function (e) {
-        console.log("bbbbb",xhr.responseText)
         callback1(xhr.responseText)
        }
        //post request
-       //xhr.open("POST","/upload",true);
        xhr.open("POST",url,true);
        //submit formdata file
        xhr.send(fd);

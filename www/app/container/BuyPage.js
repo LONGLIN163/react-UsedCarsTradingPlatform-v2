@@ -26,9 +26,7 @@ class BuyPage extends React.Component {
                 style={{ height: '100%', borderRight: 0 }}
                  onClick={(e)=>{
                     console.log(e)
-                    //if(e.key==this.props.pathname) return;
                     if(e.item.props.href==this.props.pathname) return;
-                    //this.props.dispatch(push(e.key))
                     this.props.dispatch(push(e.item.props.href))
                   }}
                 >
@@ -37,11 +35,6 @@ class BuyPage extends React.Component {
                 </Menu>
             </Sider>
             <Layout style={{ padding: '0 24px 24px' }}>
-                {/* <Breadcrumb style={{ margin: '16px 0' }}>
-                <Breadcrumb.Item>Home</Breadcrumb.Item>
-                <Breadcrumb.Item>List</Breadcrumb.Item>
-                <Breadcrumb.Item>App</Breadcrumb.Item>
-                </Breadcrumb> */}
                 <Content style={{background: '#fff', padding: 24, margin: 0, minHeight: 280,}}>
                     {this.props.children}
                 </Content>
