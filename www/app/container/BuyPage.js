@@ -1,10 +1,9 @@
 import React from 'react'
 import { connect } from 'dva';
-import {Layout, Menu, Breadcrumb, Icon,} from 'antd';
+import {Layout, Menu} from 'antd';
 import {push} from 'react-router-redux'
 
-const { SubMenu } = Menu;
-const {Header, Content, Footer, Sider,} = Layout;
+const { Content, Sider} = Layout;
 
 import './app.less'
 import App from './App'

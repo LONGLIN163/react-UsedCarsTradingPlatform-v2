@@ -32,35 +32,28 @@ export default {
 
     },
     reducers:{
-        //waiting for propsname and value,change filter
         changeFilter_sync(state,{propsname,value}){
            return R.set(R.lensProp("filters"),R.set(R.lensProp(propsname),value,state.filters),
            state);
         },
-        //waiting for propsname and value,change filter
         changeCars(state,{cars}){
            return R.set(R.lensProp("cars"),cars,state);
         },
-        //waiting for propsname and value,change filter
         changeCount(state,{count}){
            return R.set(R.lensProp("count"),count,state);
         },
-        //waiting for propsname and value,change filter
         changePage_sync(state,{page=state.pageInfo.page}){//give defalut value in case of getting undefine value
             return R.set(R.lensProp("pageInfo"),R.set(R.lensProp("page"),page,state.pageInfo),
             state);
         },
-        //waiting for propsname and value,change filter
         changePageSize_sync(state,{pagesize=state.pageInfo.pagesize}){//give defalut value in case of getting undefine valu
             return R.set(R.lensProp("pageInfo"),R.set(R.lensProp("pagesize"),pagesize,state.pageInfo),
             state);
         },
-        //waiting for propsname and value,change filter
         changeSortBy_sync(state,{sortBy=state.sortInfo.sortBy}){//give defalut value in case of getting undefine valu
             return R.set(R.lensProp("sortInfo"),R.set(R.lensProp("sortBy"),sortBy,state.sortInfo),
             state);
         },
-        //waiting for propsname and value,change filter
         changeSortDirection_sync(state,{sortDirection=state.sortInfo.sortDirection}){//give defalut value in case of getting undefine valu
             return R.set(R.lensProp("sortInfo"),R.set(R.lensProp("sortDirection"),sortDirection,state.sortInfo),
             state);
@@ -79,7 +72,6 @@ export default {
             const {sortInfo}=yield select(data=>data.carlist);
 
             //receive the result data from fetchserver(server.js)
-            //const results=yield call(fetchServer,filters,pageInfo);//pack the fetch filed to a component server.js
             const {results,count}=yield call(fetchServer,filters,pageInfo,sortInfo);//pack the fetch filed to a component server.js
             
             //change the cars in filters
@@ -100,14 +92,12 @@ export default {
             const {sortInfo}=yield select(data=>data.carlist);
             
             //receive the result data from fetchserver(server.js)
-            //const results=yield call(fetchServer,filters,pageInfo);//pack the fetch filed to a component server.js
             const {results,count}=yield call(fetchServer,filters,pageInfo,sortInfo);//pack the fetch filed to a component server.js
             
             //change the cars in filters
             yield put({"type":"changeCars","cars":results});
             yield put({"type":"changeCount","count":count});
             
-            console.log("------",results)
         },
         * changePageOrSort({page,pagesize,sortBy,sortDirection},{put,select,call}){
             //get current pagesize first to see if user want to change pagesize
@@ -141,7 +131,6 @@ export default {
             var {sortInfo}=yield select(data=>data.carlist);
 
             //receive the result data from fetchserver(server.js)
-            //const results=yield call(fetchServer,filters,pageInfo);//pack the fetch filed to a component server.js
             var {results,count}=yield call(fetchServer,filters,pageInfo,sortInfo);//pack the fetch filed to a component server.js
             
             //change the cars in filters

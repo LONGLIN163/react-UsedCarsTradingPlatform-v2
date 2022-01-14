@@ -23,12 +23,10 @@ export default {
             more:[]
         },
         step3:{
-            //files:[{"filename":"ddddd.jpg"},{"realpath":"upload_ea548a2fc5e4298f31e09f11f702b30f.jpg"}]
             files:[]
         }
     },
     reducers:{
-        // changeStep1(state,action){
         changeStep1(state,{propname,value}){
             return R.set(R.lensProp("step1"),R.set(R.lensProp(propname),value,state.step1),state)
         },

@@ -1,9 +1,7 @@
 import React from 'react'
+import {Layout, Menu} from 'antd';
 
-import {Layout, Menu, Breadcrumb, Icon,} from 'antd';
-
-const { SubMenu } = Menu;
-const {Header, Content, Footer, Sider,} = Layout;
+const { Content, Sider} = Layout;
 
 import './app.less'
 import App from './App'
