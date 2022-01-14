@@ -1,7 +1,6 @@
 import React from 'react'
 import { Row, Col, Button, Modal } from 'antd';
 import { Table } from 'antd';
-import moment from 'moment'
 import { connect } from 'dva'
 import MyModal from './MyModal'
 import * as columns from './columns'

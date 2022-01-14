@@ -13,8 +13,6 @@ import App from '../../container/App'
 class Picshow extends React.Component {
   constructor(props){
     super(props)
-    console.log(props)
-    //this.props.dispatch({"type":"picshow/init","nowid":1000042})
     this.props.dispatch({"type":"picshow/init","nowid":props.match.params.id})
   }
   render() {

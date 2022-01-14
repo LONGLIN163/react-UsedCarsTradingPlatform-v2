@@ -2,8 +2,6 @@ import React from 'react'
 import { Row, Col,Checkbox,Tag } from 'antd';
 const CheckboxGroup = Checkbox.Group;
 
-//import { connect } from 'dva';
-
 import Tags from './FiltersControl/Tags'
 import CarlistCheckbox from './FiltersControl/CarlistCheckbox'
 import CarlistPriceSlider from './FiltersControl/CarlistPriceSlider'

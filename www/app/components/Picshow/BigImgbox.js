@@ -20,7 +20,6 @@ class BigImgbox extends React.Component {
     var self=this;
     //callback,only one time
     img.onload=function(){
-      //alert("nnnnnnnnnnnnnnnnnnnn")
       $(self.refs.bigImg).attr("src",img.src)
       //hide loading info
       self.setState({
@@ -36,7 +35,6 @@ class BigImgbox extends React.Component {
     const currImgIndex=allArr.indexOf(nextProps.imgs[nextProps.nowalbum][nextProps.nowidx])
     //the end of the loop
     const end=currImgIndex+5<allArr.length?currImgIndex+5:allArr.length
-    //but fuck!!!how can i kowh the current img in which folder?
     //create a new arr,build corresponding relation
     const dirarr=[].concat(
       new Array(nextProps.imgs.view.length).fill("view"),
@@ -48,7 +46,6 @@ class BigImgbox extends React.Component {
     
     //now load next five imgs
     for(var i=currImgIndex;i<end;i++){
-        //console.log(`carimgs/${nextProps.nowid}/${dirarr[i]}/${allArr[i]}`);
         var _img=new Image();
         _img.src=`carimgs/${nextProps.nowid}/${dirarr[i]}/${allArr[i]}`;
       }
@@ -62,7 +59,6 @@ class BigImgbox extends React.Component {
     return (
       <div className="bigImgBox">
         <div className="inner">
-              {/* <img src={`carimgs/${this.props.nowid}/${this.props.nowalbum}/${this.props.imgs[this.props.nowalbum][this.props.nowidx]}`} className="bigImg"/> */}
               <img className="bigImg" ref="bigImg"/>
 
               <div onClick={()=>{

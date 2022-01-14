@@ -7,12 +7,6 @@ class Smallpics extends React.Component {
         super(props)
     }
 
-    // componentDidUpdate(){
-    //   $(this.refs.pageNav).delegate("span","click",function(){
-    //     alert($(this).index())
-    //   })
-    // }
-
   render() {
     if(!this.props.imgs) return null;
 
@@ -78,7 +72,6 @@ class Smallpics extends React.Component {
         $(this.refs.pageNav).find("span").eq(currPage).addClass("cur").siblings().removeClass("cur");
 
       }}>
-                {/* {JSON.stringify(this.props.imgs[this.props.nowalbum])} */}
               <div className="unit" ref="unit" style={{"left":-290*currPage+"px"}}>
                 {
                   showUlLis()
