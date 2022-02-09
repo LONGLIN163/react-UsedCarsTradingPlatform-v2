@@ -335,7 +335,7 @@ app.post("/addCar",function(req,res){
 
 //******test port******
 app.listen(3000,(err)=>{
-    console.log("run at 3000 port")
+    console.log("service is running run at 3000 port")
 })
 
 //******production port******
