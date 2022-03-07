@@ -1,5 +1,5 @@
 import React from 'react'
-import {Row,Col,Menu, Dropdown, Button} from 'antd'
+import {Row,Col} from 'antd'
 
 export default class Step3_filebar extends React.Component {
     constructor(props){

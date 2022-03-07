@@ -3,7 +3,7 @@ const path = require('path');
 module.exports = {
     
     mode: "development", 
-    devtool:false, 
+    devtool:"source-map", 
     entry: "./www/app/main", 
     output: {
         path: path.resolve(__dirname, "www/dist"), //the folder of the final packaged file
@@ -20,6 +20,7 @@ module.exports = {
         //port: 3001,//ok
         port: 8000//ok
     },
+    watch:true,
     module: {
         rules: [
             {
@@ -34,19 +35,19 @@ module.exports = {
                 options: {
                     presets: [
                         "env", //convert es6 to es5, it acutrally support 2015,2016,2017..., no need more config
-                        "react" //convert react syntax to es5
+                        "react" //convert jsx  to es5
                     ], 
                     plugins: [
                         "transform-object-rest-spread", //make react can use es6 ...spread operation
                         "transform-es2015-arrow-functions", //make react can use arrow func
-                        "transform-runtime" //make babel can translate new APIs，like Iterator、Generator、Set、Maps, includs...
+                        "transform-runtime" //make babel can translate new APIs，like async&await、Iterator、Generator、Set、Maps, includs...
                     ]
                 }
             },
             {
                 test:/\.less$/, //handle all less file
                 include:[
-                    path.resolve(__dirname,"www/app") //all less file in www/app
+                    path.resolve(__dirname,"www/app") //all less file in www/app 
                 ],
                 exclude: [
                     path.resolve(__dirname, "node_modules") //but not modules

@@ -8,12 +8,11 @@ var gm=require("gm")
 
 var mongoose=require("mongoose")
 
-//******connect to local db******
+//******connect to development db******
 mongoose.connect("mongodb://localhost:27017/coolcars", { useNewUrlParser: true });
-
 //******connect to production db******
 /*
-mongoose.connect('mongodb+srv://developerlin:Long2021...@cluster0.r4ghm.mongodb.net/coolcars?retryWrites=true&w=majority', { 
+mongoose.connect('mongodb+srv://developerlin:Long2021..  .@cluster0.r4ghm.mongodb.net/coolcars?retryWrites=true&w=majority', { 
 	useNewUrlParser: true,
 	useCreateIndex:true
 }).then(()=>{
@@ -31,9 +30,7 @@ app.use(express.static("www"))
 
 //create a API that can check info of everycars,include imgs' info.
 app.get("/carinfo/:id",(req,res)=>{
-        //get this id 
         var id=req.params.id;
-        //check data from database
         Car.find({"id":id}).exec((err,results)=>{
              res.json({"result":results[0]})
         })
@@ -43,9 +40,10 @@ app.get("/carinfo/:id",(req,res)=>{
 app.get("/carlike/:id",(req,res)=>{
         var id=req.params.id;
         Car.find({"id":id}).exec((err,results)=>{
-                var brand=results[0].brand
+                //get the current car brand and series
+                var brand=results[0].brand 
                 var series=results[0].series
-                //continue check with upper brand and series
+                //get similar cars with current car's brand and series
                 Car.find({brand,series}).exec((err,results)=>{
                 res.json({results})
                 })
@@ -85,8 +83,6 @@ app.post("/cars",function(req,res){
         //formidable syntax
         var form=new formindable.IncomingForm();
         form.parse(req,(err,{filters,pageInfo,sortInfo})=>{
-            //console.log(JSON.parse(para))
-            //console.log(para)
 
             //get the obj that we want to check
             var targetObj={};

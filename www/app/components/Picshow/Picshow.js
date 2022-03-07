@@ -7,7 +7,7 @@ import Album from './Album'
 import Carlike from './Carlike'
 import Smallpics from './Smallpics'
 import BigImgbox from './BigImgbox'
-import App from '../../container/App'
+import App from '../../pages/App'
 
 
 class Picshow extends React.Component {

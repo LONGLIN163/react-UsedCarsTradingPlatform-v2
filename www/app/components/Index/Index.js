@@ -1,6 +1,6 @@
 import React from 'react'
 import Slider from './Slider'
-import App from '../../container/App'
+import App from '../../pages/App'
 import './Slider.less'
 import {connect} from 'dva'
 

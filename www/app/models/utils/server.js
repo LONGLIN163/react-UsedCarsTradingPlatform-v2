@@ -1,7 +1,9 @@
 export const fetchServer=function*(filters,pageInfo,sortInfo){
    
             //sent ajax request,every time sent all the current filters to the server
-            const {results,count}=yield fetch("/cars",{
+            const {results,count}=yield fetch(
+                "/cars",
+                {
                 "method":"POST",
                 "headers":{
                     "Content-Type":"application/json"
@@ -12,8 +14,8 @@ export const fetchServer=function*(filters,pageInfo,sortInfo){
                     pageInfo,
                     sortInfo
                 })
-            //})
-            }).then(data=>data.json());
+            })
+            .then(data=>data.json());
 
             return {
                 results,

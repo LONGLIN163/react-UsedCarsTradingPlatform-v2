@@ -4,7 +4,7 @@ import { connect } from 'dva';
 import FilterBox from './FilterBox'
 import TableBox from './TableBox'
 
-import BuyPage from '../../container/BuyPage'
+import BuyPage from '../../pages/BuyPage'
 
 import './carlist.less'
 

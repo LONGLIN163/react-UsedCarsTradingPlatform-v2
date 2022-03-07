@@ -8,7 +8,7 @@ import Step3 from './Step3'
 
 import './AddCar.less'
 import {connect} from 'dva';
-import SalePage from '../../container/SalePage'
+import SalePage from '../../pages/SalePage'
 
 class AddCar extends React.Component {
   constructor(props) {

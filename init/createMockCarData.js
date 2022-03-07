@@ -15,12 +15,8 @@ const carimgsFilePath=path.resolve(__dirname,"../www/carimgs/")
 
 
 //use fs module to read carbasedata.json.
-//for avoid of callback in callback,we need to use readFileSync
-//var content=fs.readFileSync(carbasedataFilePath).toString()
+//for avoid of callback in callback, we need to use readFileSync
 var arr=JSON.parse(fs.readFileSync(carbasedataFilePath).toString())//now arr has become a real array
-
-//console.log(arr)
-//console.log(typeof content)
 
 //loop this arr
 for(var i=0;i<arr.length;i++){

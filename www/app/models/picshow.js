@@ -29,7 +29,7 @@ export default {
     },
     effects:{
         //initialize the page info,especially for getting the data of carinfo and carlike
-        *init(action,{put,call,select}){
+        *init(action,{put}){ 
 
             //change nowid by action
             yield put({"type":"changeNowid","nowid":action.nowid})
