@@ -132,7 +132,7 @@ app.post("/cars",function(req,res){
             var sortBy=sortInfo.sortBy;
             var sortDirection=sortInfo.sortDirection;
 
-            console.log("**************",sortBy,"**************",sortDirection)
+            console.log("******sort by********",sortBy,"**************",sortDirection)
             //count all the data first
             Car.count(targetObj,(err,count)=>{
                 //check this obj that we got
@@ -161,13 +161,8 @@ app.post("/uploadPic",function(req,res){
     //res.writeHead(200, {'content-type': 'text/html'});
     form.parse(req,function(err,content,files){
         if(!files) return;
-        //actually no need to write any thing here
-        //res.send("ok")
-
         //when the pic is upload,name gonna be change randomly.then sent the changed name to the front-end
         //use path.parse to cut some info,in case get attack from hk,sent the rest info to the front
-        //res.send(files.file.path)
-        //res.send(path.parse(files.file.path).name)
         res.send(path.parse(files.file.path).base)
     })
 })
@@ -183,13 +178,8 @@ app.post("/uploadInfo",function(req,res){
     //res.writeHead(200, {'content-type': 'text/html'});
     form.parse(req,function(err,content,files){
         if(!files) return;
-        //actually no need to write any thing here
-        //res.send("ok")
-
         //when the pic is upload,name gonna be change randomly.then sent the changed name to the front-end
         //use path.parse to cut some info,in case get attack from hk,sent the rest info to the front
-        //res.send(path.parse(files.file.path))
-        //res.send(path.parse(files.file.path).name)
         res.send(path.parse(files.file.path).base)
     })
 })
@@ -200,9 +190,6 @@ app.post("/addCar",function(req,res){
     //addcar
     var form=new formindable.IncomingForm();
     form.parse(req,function(err,{step1,step2,step3},files){
-        //if(!files) return;
-        //console.log(step1)
-        //console.log("step2",step2)
 
         var brand=step1.brandAndSeries.value[1];
         var series=step1.brandAndSeries.value[2];

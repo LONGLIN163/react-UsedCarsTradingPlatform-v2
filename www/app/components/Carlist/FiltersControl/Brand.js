@@ -69,32 +69,3 @@ export default connect(
 )(Brand)
 
 
-
-
-
-{/* <Tabs ActiveKey="A">
-
-{
-  Object.keys(this.state.options).map(item=>{
-    return <TabPane tab={item} key={item}>
-              {
-                this.state.options[item].map((_item,index)=>{
-                  return <Button key={index} onClick={()=>{
-                      //call carlist's function
-                      //this.props.setnowseries(Object.values(_item)[0]);
-                      //console.log(123)
-                      alert(123)
-                    }}>
-                    {Object.keys(_item)[0]}
-                    {/* ---
-                    // {Object.values(_item)[0]} */}
-
-//                     </Button>
-                    
-//                 })
-//               }
-//           </TabPane>
-//   })
-// }
-
-// </Tabs> */}

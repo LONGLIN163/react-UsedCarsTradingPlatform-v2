@@ -65,7 +65,7 @@ class TableBox extends React.Component {
             />
         </Col>
         <Col span={4}>
-          <Button type="primary" shape="circle" icon="search" />B
+          <Button type="primary" shape="circle" icon="search" />
             </Col>
       </Row>
 
@@ -96,7 +96,6 @@ class TableBox extends React.Component {
 
       <Table
         dataSource={this.props.cars}
-        //dataSource={[]} 
         columns={columnsArr}
         pagination={{
           current: this.props.pageInfo.page,
@@ -105,6 +104,7 @@ class TableBox extends React.Component {
           showSizeChanger: true//what if we want user chouse how many item show in each page???
         }}
         onChange={(pagination, sorter) => {
+          console.log("sorter***-----",sorter)
           this.props.dispatch({
             "type": "carlist/changePageOrSort",
             "page": pagination.current,

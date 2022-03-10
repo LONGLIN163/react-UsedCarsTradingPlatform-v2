@@ -25,7 +25,7 @@ export default {
         },
         "sortInfo":{
             "sortBy":"id",
-            "sortDirection":1
+            "sortDirection":1 
         },
         "cars":[],
         "count":0
@@ -139,20 +139,3 @@ export default {
         },   
     }
 }
-
-
-// * changeFilter({propsname,value},{put,select}){
-//     //call sync
-//     yield put({"type":"changeFilter_sync",propsname,value});
-//     //get current filters 
-//     const {filters}=yield select(data=>data.carlist);
-//     //sent ajax request,every time sent all the current filters to the server
-//     yield fetch("/cars",{
-//         "method":"POST",
-//         "headers":{
-//             "Content-Type":"application/json"
-//         },
-//         "body":JSON.stringify(filters)
-
-//     })
-// }

@@ -8,7 +8,7 @@ import addCar from "./models/addCar"
 
 //create app
 const app=dva({
-    onAction:logger
+    //onAction:logger
 })
 
 app.router(router)
