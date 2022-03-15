@@ -25,9 +25,9 @@ class App extends React.Component {
                     this.props.dispatch(push(e.key))
                   }}
                 >
-                  <Menu.Item key="/">Home</Menu.Item>
-                  <Menu.Item key="/buy/carlist">buy</Menu.Item>
-                  <Menu.Item key="/sale/addcar">sale</Menu.Item>
+                  <Menu.Item key="/">Find Your Car</Menu.Item>
+                  {/* <Menu.Item key="/buy/carlist">buy</Menu.Item> */}
+                  <Menu.Item key="/sale/addcar">Sell Your Car</Menu.Item>
                 </Menu>
               </Header>
               {this.props.children}

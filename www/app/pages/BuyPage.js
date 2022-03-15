@@ -14,7 +14,7 @@ class BuyPage extends React.Component {
         super()
     }
   render() {
-    const targetDefalt=this.props.pathname.match(/^\/(.+)\//g)[0]
+    const targetDefalt=this.props.pathname.match(/^\//g)[0]
     return (
       <App>
         <Layout>
@@ -29,8 +29,6 @@ class BuyPage extends React.Component {
                     this.props.dispatch(push(e.item.props.href))
                   }}
                 >
-                    {/* <Menu.Item key="/buy/" href="/buy/carlist">carlist</Menu.Item>
-                    <Menu.Item key="/sale/" href="/sale/community">community</Menu.Item> */}
                 </Menu>
             </Sider>
             <Layout style={{ padding: '0 24px 24px' }}>
