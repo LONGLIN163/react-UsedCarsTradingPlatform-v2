@@ -1,17 +1,12 @@
 import React from 'react'
 import { Steps } from 'antd';
 const Step = Steps.Step;
-import {
-  Form, Input, Cascader, Select, Radio,DatePicker 
-} from 'antd';
+import {Form, Input, Cascader, Select, DatePicker } from 'antd';
 const Option = Select.Option;
-
-const RadioGroup = Radio.Group;
 
 export default class Step1_form extends React.Component {
   constructor(props) {
     super(props)
-
   }
 
   render() {
@@ -25,74 +20,73 @@ export default class Step1_form extends React.Component {
         sm: { span: 10 },
       },
     };
+
+    //getFieldDecorator is using for two way data binding
     const { getFieldDecorator } = this.props.form;
+
     return (
       <div>
-        {/**********************BrandAndSeries************************** */}
-        <Form {...formItemLayout} onSubmit={this.handleSubmit}>
-          <Form.Item
-            label="BrandAndSeries"
-          >
-            {getFieldDecorator('brandAndSeries', {
-              rules: [
-                {
-                  required: true, message: "Required",
-                }
-            ],
-            })(
-              <Cascader options={this.props.brandAndSeriesOption} />
-            )}
-          </Form.Item>
-
-           {/**********************gearbox************************** */}
-
-          <Form.Item
-            label="Gearbox"
-          >
-            {getFieldDecorator('gearbox', {
-              rules: [
+        {/*****BrandAndSeries******/}
+        <Form {...formItemLayout}>
+          <Form.Item label="BrandAndSeries">
+            {
+              getFieldDecorator('brandAndSeries', {
+                rules: [
                   {
-                    required: true, message: "Required",
+                    required: true, 
+                    message: "Required",
                   }
               ],
-            })(
-              <Select>
-                {
-                  ["automatic","manual","AMT"].map(item=>{
-                    return <Option value={item} key={item}>{item}</Option>
-                  })
-                }
-              </Select>
-            )}
+              })(
+                <Cascader options={this.props.brandAndSeriesOption} />
+              )
+            }
           </Form.Item>
 
-           {/**********************displacement************************** */}
-
-          <Form.Item
-            label="displacement"
-          >
-            {getFieldDecorator('displacement', {
-              rules: [
+           {/*****gearbox******/}
+          <Form.Item label="Gearbox">
+            {
+              getFieldDecorator('gearbox', {
+                rules: [
+                    {
+                      required: true, message: "Required",
+                    }
+                ],
+              })(
+                <Select>
                   {
-                    required: true, message: "Required",
+                    ["automatic","manual","AMT"].map(item=>{
+                      return <Option value={item} key={item}>{item}</Option>
+                    })
                   }
-              ],
-            })(
-              <Select>
-                {
-                  ["1.0L","1.2L","1.6L","1.6T","2.0L","2.0T","5.0L"].map(item=>{
-                    return <Option value={item} key={item}>{item}</Option>
-                  })
-                }
-              </Select>
-            )}
+                </Select>
+              )
+            }
           </Form.Item>
 
-           {/**********************Fuel************************** */}
+           {/*****displacement*****/}
+          <Form.Item label="displacement">
+            {
+              getFieldDecorator('displacement', {
+                rules: [
+                    {
+                      required: true, message: "Required",
+                    }
+                ],
+              })(
+                <Select>
+                  {
+                    ["1.0L","1.2L","1.6L","1.6T","2.0L","2.0T","5.0L"].map(item=>{
+                      return <Option value={item} key={item}>{item}</Option>
+                    })
+                  }
+                </Select>
+              )
+            }
+          </Form.Item>
 
-          <Form.Item
-            label="Fuel"
-          >
+           {/*****Fuel*****/}
+          <Form.Item label="Fuel">
             {getFieldDecorator('fuel', {
               rules: [
                   {
@@ -110,179 +104,172 @@ export default class Step1_form extends React.Component {
             )}
           </Form.Item>
 
-           {/**********************eco************************** */}
-
-          <Form.Item
-            label="Eco"
-          >
-            {getFieldDecorator('eco', {
-              rules: [
+           {/*****eco*****/}
+          <Form.Item label="Eco">
+            {
+              getFieldDecorator('eco', {
+                rules: [
+                    {
+                      required: false
+                    }
+                ],
+              })(
+                <Select>
                   {
-                    required: true, message: "Required",
+                    ["E1","E2","E3","E4","E5"].map(item=>{
+                      return <Option value={item} key={item}>{item}</Option>
+                    })
                   }
-              ],
-            })(
-              <Select>
-                {
-                  ["E1","E2","E3","E4","E5"].map(item=>{
-                    return <Option value={item} key={item}>{item}</Option>
-                  })
-                }
-              </Select>
-            )}
+                </Select>
+              )
+            }
           </Form.Item>
           
-           {/**********************Buydate************************** */}
-
-          <Form.Item
-            label="Buydate"
-          >
-            {getFieldDecorator('buydate', {
-              rules: [
-                  {
-                    required: true, message: "Required",
-                  }
-              ],
-            })(
-             <DatePicker ></DatePicker >
-            )}
+           {/*****Buydate*****/}
+          <Form.Item label="Buydate">
+            {
+              getFieldDecorator('buydate', {
+                rules: [
+                    {
+                      required: true, message: "Required",
+                    }
+                ],
+              })(
+              <DatePicker ></DatePicker >
+              )
+            }
           </Form.Item> 
 
-           {/**********************licenseplate************************** */}
-
-          <Form.Item
-            label="Licenseplate"
-          >
-            {getFieldDecorator('licenseplate', {
-              rules: [
-                  {
-                    required: true, message: "Required",
-                  }
-              ],
-            })(
-              <Select>
-                <Option value={0}>Yes</Option>
-                <Option value={1}>No</Option>
-              </Select>
-            )}
+           {/*****licenseplate*****/}
+          <Form.Item label="Licenseplate">
+            {
+              getFieldDecorator('licenseplate', {
+                rules: [
+                    {
+                      required: true, message: "Required",
+                    }
+                ],
+              })(
+                <Select>
+                  <Option value={0}>Yes</Option>
+                  <Option value={1}>No</Option>
+                </Select>
+              )
+            }
           </Form.Item>
 
-           {/**********************Locality************************** */}
-
-          <Form.Item
-            label="Locality"
-          >
-            {getFieldDecorator('locality', {
-              rules: [
-                  {
-                    required: true, message: "Required",
-                  }
-              ],
-            })(
-              <Select>
-                <Option value={0}>Yes</Option>
-                <Option value={1}>No</Option>
-              </Select>
-            )}
+           {/*****Locality*****/}
+          <Form.Item label="Locality">
+            {
+              getFieldDecorator('locality', {
+                rules: [
+                    {
+                      required: true, message: "Required",
+                    }
+                ],
+              })(
+                <Select>
+                  <Option value={0}>Yes</Option>
+                  <Option value={1}>No</Option>
+                </Select>
+              )
+            }
           </Form.Item>
 
-           {/**********************Color************************** */}
-
-          <Form.Item
-            label="Color"
-          >
-            {getFieldDecorator('color', {
-              rules: [
+           {/*****Color*****/}
+          <Form.Item label="Color">
+            {
+              getFieldDecorator('color', {
+                rules: [
+                    {
+                      required: true, message: "Required",
+                    }
+                ],
+              })(
+                <Select>
                   {
-                    required: true, message: "Required",
+                    ["black","white","red","green","silver","grey","brown"].map(item=>{
+                      return <Option value={item} key={item}>{item}</Option>
+                    })
                   }
-              ],
-            })(
-              <Select>
-                {
-                  ["black","white","red","green","silver","grey","brown"].map(item=>{
-                    return <Option value={item} key={item}>{item}</Option>
-                  })
-                }
-              </Select>
-            )}
+                </Select>
+              )
+            }
           </Form.Item>
 
-           {/**********************Type************************** */}
-
-          <Form.Item
-            label="Type"
-          >
-            {getFieldDecorator('type', {
-              rules: [ 
+           {/*****Type*****/}
+          <Form.Item label="Type">
+            {
+              getFieldDecorator('type', {
+                rules: [ 
+                    {
+                      required: false
+                    }
+                ],
+              })(
+                <Select>
                   {
-                    required: true, message: "Required",
+                    ["high","middle","luxury","SUV","economic"].map(item=>{
+                      return <Option value={item} key={item}>{item}</Option>
+                    })
                   }
-              ],
-            })(
-              <Select>
-                {
-                  ["high","middle","luxury","SUV","economic"].map(item=>{
-                    return <Option value={item} key={item}>{item}</Option>
-                  })
-                }
-              </Select>
-            )}
+                </Select>
+              )
+            }
           </Form.Item>
           
-           {/**********************Price************************** */}
-
-          <Form.Item
-            label="Price(€)"
-          >
-            {getFieldDecorator('price', {
-              rules: [
-                {
-                  //input a number in a scope
-                  validator: function(rule, value, callback){
-                    value=Number(value);//it gonna be NaN if value is not number,NaN can not be compared 
-                    if(!(parseFloat(value)>=0&&parseFloat(value)<=100)){
-                      callback("Please input number between 0-100");
-                      return;
+           {/*****Price*****/}
+          <Form.Item label="Price(€)">
+            {
+              getFieldDecorator('price', {
+                rules: [
+                  {
+                    //input a number in a scope
+                    validator: function(rule, value, callback){
+                      value=Number(value);//it gonna be NaN if value is not number,NaN can not be compared 
+                      if(!(parseFloat(value)>=0&&parseFloat(value)<=100)){
+                        callback("Please input number between 0-100");
+                        return;
+                      }
+                      callback()
                     }
-                    callback()
+                  }, 
+                  {
+                      "required": true, "message": "Required",
                   }
-                }, 
-                {
-                    "required": true, "message": "Required",
-                }
-              ],
-            })(
-              <Input></Input> 
-            )}
+                ],
+              })(
+                <Input></Input> 
+              )
+            }
           </Form.Item>
 
-           {/**********************Km(km)************************** */}
-
-          <Form.Item
-            label="Km(km)"
-          >
-            {getFieldDecorator('km', {
-              rules: [
-                {
-                  //input a number in a scope
-                  validator: function(rule, value, callback){
-                    //console.log(value)
-                    value=Number(value);//it gonna be NaN if value is not number,NaN can not be compared 
-                    if(!(parseFloat(value)>=0&&parseFloat(value)<=10000)){
-                      callback("Please input number between 0-10000");
-                      return;
+           {/*****Km(km)*****/}
+          <Form.Item label="Km(km)">
+            {
+              getFieldDecorator('km', {
+                rules: [
+                  {
+                    //input a number in a scope
+                    validator: function(rule, value, callback){
+                      //console.log(value)
+                      value=Number(value);//it gonna be NaN if value is not number,NaN can not be compared 
+                      if(!(parseFloat(value)>=0&&parseFloat(value)<=10000)){
+                        callback("Please input number between 0-10000");
+                        return;
+                      }
+                      callback()
                     }
-                    callback()
+                  }, 
+                  {
+                      "required": true, 
+                      "message": "Required",
                   }
-                }, 
-                {
-                    "required": true, "message": "Required",
-                }
-              ],
-            })(
-              <Input></Input> 
-            )}
+                ],
+              })(
+                <Input></Input> 
+              )
+            }
           </Form.Item>
         </Form>
       </div>

@@ -7,7 +7,7 @@ import './app.less'
 import App from './App'
 
 
-export default class BuyPage extends React.Component {
+export default class SalePage extends React.Component {
     constructor(){
         super()
     }

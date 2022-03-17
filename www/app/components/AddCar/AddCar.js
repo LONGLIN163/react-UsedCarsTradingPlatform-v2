@@ -14,7 +14,7 @@ class AddCar extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      current: 2
+      current: 1
     };
   }
 
@@ -34,12 +34,29 @@ class AddCar extends React.Component {
     const checkStep1Disabled=()=>{
       var noError=true
       var step1=this.props.step1
+
+      console.log("step1***",step1)
+      console.log("step1**length*",Object.keys(step1).length)
+      
       for(var k in step1){
         
-        if(step1[k].errors!=undefined){
+        //if(step1[k].errors!=undefined){
+        //var errArr=step1[k].errors
+        //console.log("errArr***",errArr)
+
+        if(step1[k].errors == undefined ){
+        //if(errArr.length > 0 ){
+          //console.log("k***",step1[k].errors.length)
+          console.log("k***",step1[k].errors)
           noError=false
+          
+          //return;
         }
       }
+      
+      console.log("noError***",noError)
+      console.log("******************************")
+
       return !noError
     }
 

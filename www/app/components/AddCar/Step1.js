@@ -43,11 +43,18 @@ class Step1 extends React.Component {
 
     render() {
         //create form package copo
-        const WrappedRegistrationForm = Form.create({ 
+        const WrappedRegistrationForm = Form.create(
+            { 
                 onFieldsChange:(fields)=>{
-                this.props.dispatch({"type":"addCar/changeStep1","propname":Object.keys(fields)[0],"value":Object.values(fields)[0]})
+                    //console.log("fields***",fields)
+                    this.props.dispatch({
+                        "type":"addCar/changeStep1",
+                        "propname":Object.keys(fields)[0],
+                        "value":Object.values(fields)[0]
+                    })
+                }
             }
-         })(Step1_form);
+        )(Step1_form);
 
         return (
             <div>
