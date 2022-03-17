@@ -35,27 +35,13 @@ class AddCar extends React.Component {
       var noError=true
       var step1=this.props.step1
 
-      console.log("step1***",step1)
-      console.log("step1**length*",Object.keys(step1).length)
-      
       for(var k in step1){
-        
-        //if(step1[k].errors!=undefined){
-        //var errArr=step1[k].errors
-        //console.log("errArr***",errArr)
-
+      
         if(step1[k].errors == undefined ){
-        //if(errArr.length > 0 ){
-          //console.log("k***",step1[k].errors.length)
-          console.log("k***",step1[k].errors)
           noError=false
           
-          //return;
         }
       }
-      
-      console.log("noError***",noError)
-      console.log("******************************")
 
       return !noError
     }
@@ -127,9 +113,15 @@ class AddCar extends React.Component {
     return (
       <SalePage>
         <Steps current={this.state.current-1}>
-          {steps.map(item => <Step key={item.title} title={item.title} />)}
+          {
+            steps.map(item => <Step key={item.title} title={item.title} />)
+          }
         </Steps>
-        <div className="content_box">{steps[this.state.current-1].content}</div>
+        <div className="content_box">
+          {
+            steps[this.state.current-1].content
+          }
+        </div>
         <div className="btn_box">
                 {
                   showButton()

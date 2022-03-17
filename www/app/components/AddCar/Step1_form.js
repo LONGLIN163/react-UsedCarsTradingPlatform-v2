@@ -1,6 +1,4 @@
 import React from 'react'
-import { Steps } from 'antd';
-const Step = Steps.Step;
 import {Form, Input, Cascader, Select, DatePicker } from 'antd';
 const Option = Select.Option;
 
@@ -22,12 +20,13 @@ export default class Step1_form extends React.Component {
     };
 
     //getFieldDecorator is using for two way data binding
-    const { getFieldDecorator } = this.props.form;
+    const { getFieldDecorator } = this.props.form; 
 
     return (
       <div>
-        {/*****BrandAndSeries******/}
         <Form {...formItemLayout}>
+
+          {/*****BrandAndSeries******/}
           <Form.Item label="BrandAndSeries">
             {
               getFieldDecorator('brandAndSeries', {
@@ -271,6 +270,7 @@ export default class Step1_form extends React.Component {
               )
             }
           </Form.Item>
+          
         </Form>
       </div>
     )
