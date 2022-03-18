@@ -47,7 +47,7 @@ class Step1 extends React.Component {
         const WrappedRegistrationForm = Form.create( // create() can makes Step1_form to this.props.form property
             { 
                 onFieldsChange:(props,fields)=>{
-                    console.log("fields***",fields)
+                    //console.log("fields***",fields)
                     this.props.dispatch({
                         "type":"addCar/changeStep1",
                         "propname":Object.keys(fields)[0], // form

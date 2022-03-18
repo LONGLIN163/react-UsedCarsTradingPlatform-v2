@@ -32,21 +32,18 @@ class AddCar extends React.Component {
     }];
 
     const checkStep1Disabled=()=>{
-      var noError=true
+
       var step1=this.props.step1
 
-      console.log("step1********",step1)
+      var hasErr=true // initial data is empty, then it should be an error
       
       for(var k in step1){
-        
-        if(step1[k].errors !== undefined ){
-          noError=false
-          
+        if(step1[k].errors != undefined ){ 
+          // If there is any one is not undefined, which means there is some errors with k field
+          hasErr=false 
         }
       }
-
-      console.log("step1********",step1)
-      return !noError
+      return !hasErr //if hasErr is true, we need to disable the button
     }
 
     const showButton=()=>{
