@@ -35,14 +35,17 @@ class AddCar extends React.Component {
       var noError=true
       var step1=this.props.step1
 
-      for(var k in step1){
+      console.log("step1********",step1)
       
-        if(step1[k].errors == undefined ){
+      for(var k in step1){
+        
+        if(step1[k].errors !== undefined ){
           noError=false
           
         }
       }
 
+      console.log("step1********",step1)
       return !noError
     }
 

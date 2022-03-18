@@ -29,6 +29,7 @@ class Step1 extends React.Component {
                     }))
                 })
             }
+            //console.log("brandAndSeriesOption******",brandAndSeriesOption)
             this.setState({
                 brandAndSeriesOption
             })
@@ -45,8 +46,8 @@ class Step1 extends React.Component {
         //create form package copo
         const WrappedRegistrationForm = Form.create( // create() can makes Step1_form to this.props.form property
             { 
-                onFieldsChange:(fields)=>{
-                    console.log("fields***",fields.form.getFieldsValue())
+                onFieldsChange:(props,fields)=>{
+                    console.log("fields***",fields)
                     this.props.dispatch({
                         "type":"addCar/changeStep1",
                         "propname":Object.keys(fields)[0], // form
@@ -59,7 +60,7 @@ class Step1 extends React.Component {
         return (
             <div>
                 <h1>
-                    <WrappedRegistrationForm brandAndSeriesOption={this.state.brandAndSeriesOption}></WrappedRegistrationForm>
+                    <WrappedRegistrationForm brandAndSeriesOption={this.state.brandAndSeriesOption} />
                 </h1>
             </div>
         )

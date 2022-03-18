@@ -28,7 +28,16 @@ export default {
     },
     reducers:{
         changeStep1(state,{propname,value}){
-            return R.set(R.lensProp("step1"),R.set(R.lensProp(propname),value,state.step1),state)
+            
+            return R.set(
+                      R.lensProp("step1"), 
+                      R.set( 
+                        R.lensProp(propname), 
+                        value, //1. focus on propname, set new value for the prop with this propname, return new step1 obj
+                        state.step1
+                      ), // 2. focus on step1, set the value of step1 in state
+                   state)
+
         },
         changeStep2(state,{obj}){
             return R.set(R.lensProp("step2"),obj,state)

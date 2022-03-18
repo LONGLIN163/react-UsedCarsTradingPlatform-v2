@@ -33,7 +33,7 @@ export default class Step1_form extends React.Component {
                 rules: [
                   {
                     required: true, 
-                    message: "Required",
+                    message: "This item is Required!!!",
                   }
               ],
               })(
@@ -226,7 +226,7 @@ export default class Step1_form extends React.Component {
                     //input a number in a scope
                     validator: function(rule, value, callback){
                       value=Number(value);//it gonna be NaN if value is not number,NaN can not be compared 
-                      if(!(parseFloat(value)>=0&&parseFloat(value)<=100)){
+                      if(!(parseFloat(value)>=0 && parseFloat(value)<=100)){
                         callback("Please input number between 0-100");
                         return;
                       }
@@ -234,7 +234,7 @@ export default class Step1_form extends React.Component {
                     }
                   }, 
                   {
-                      "required": true, "message": "Required",
+                      "required": true, "message": "This is required ",
                   }
                 ],
               })(
