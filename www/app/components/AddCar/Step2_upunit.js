@@ -11,42 +11,37 @@ export default class Step2_upunit extends React.Component {
     createFileReaderAndUpload(files){
         var self = this;
         for (let i = 0; i < files.length; i++) {
-            //create div for every img
-            let $div = $(`<div class="preDiv"><em></em><i></i><b>x</b></div>`);
-            //display imgs
+            //the boxes for every img
+            let $imgbox = $(`<div class="preDiv"><em></em><i></i><b>x</b></div>`);
+             
+            //******real-time display imgs******
             let fr = new FileReader()
-            //read imgs
             fr.readAsDataURL(files[i])
-
-            //then
-            fr.onload = function (e) {
+            fr.onload = function (e) { // what to do after uploading
                 //create instance of img
                 var image = new Image()
                 //local img url
                 image.src = e.currentTarget.result
                 //set div bgi
-                $div.css("background-image", `url(${image.src})`)
+                $imgbox.css("background-image", `url(${image.src})`)
                 //up to dom
-                $(self.refs.imgsbox).append($div)
-                //console.log("....",$div)
-
+                $(self.refs.imgsbox).append($imgbox)
             }
 
             uploadfiles(
                 files[i],
                 function (pathname) {
                     //after finish upload,remove...
-                    $div.find("em").remove()
-                    $div.find("i").remove()
-
+                    $imgbox.find("em").remove()
+                    $imgbox.find("i").remove()
                     //customlize attribute
-                    $div.attr("data-pathname",pathname)
+                    $imgbox.attr("data-pathname",pathname)
                 },
                 function (e) {
-                    $div.find("i").html(parseInt(e.loaded / e.total * 100) + "%")
+                    $imgbox.find("i").html(parseInt(e.loaded / e.total * 100) + "%")
                 },
                 "/uploadPic"
-           );
+           ); 
         }
     }
 
@@ -59,16 +54,14 @@ export default class Step2_upunit extends React.Component {
         $(this.refs.imgsbox).delegate("b","click",function(){
             //delete its own parent el..
             $(this).parents(".preDiv").remove()
-
         })
 
-        //****************listion the click event***************************** */
+        //****************click event***************************** */
         $(this.refs.filectrl).bind("change",function(e){
             var files=$(this)[0].files;
             self.createFileReaderAndUpload(files)
         });
-
-        //****************listion the drag event****************** */
+        //****************drag event****************** */
         $(this.refs.imgsbox).bind("dragover", function (e) {
             e.preventDefault();
             $(this).addClass("cur")
@@ -79,10 +72,10 @@ export default class Step2_upunit extends React.Component {
         });
         $(this.refs.imgsbox).bind("drop", function (e) {
             e.preventDefault();
-            //console.log(e.originalEvent.dataTransfer.files)
-            var files = e.originalEvent.dataTransfer.files
+            // get files after drop images
+            var files = e.originalEvent.dataTransfer.files 
             $(this).removeClass("cur")
-            self.createFileReaderAndUpload(files)
+            self.createFileReaderAndUpload(files)// triggle upload after mouse drop 
         });
     }
     render() {
@@ -96,9 +89,16 @@ export default class Step2_upunit extends React.Component {
 
                         </Col>
                         <Col span={4}>
-                            <div className="uploadFild" ref="uploadFild" onClick={()=>{
-                                $(this.refs.filectrl).trigger("click");
-                            }}>+</div>
+                            <div 
+                                className="uploadFiled" 
+                                ref="uploadFiled" 
+                                onClick={()=>{ // mock 'input' click
+                                 console.log("mock click******",this.refs.filectrl)
+                                 $(this.refs.filectrl) 
+                                 .trigger("click");
+                                }}
+                            >+</div>
+                            {/* this input field can upload files, but we will hide it */}
                             <input ref="filectrl" type="file" hidden multiple/>
                         </Col>
                     </Row>

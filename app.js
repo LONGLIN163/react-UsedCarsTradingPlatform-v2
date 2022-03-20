@@ -154,15 +154,13 @@ app.post("/cars",function(req,res){
 //var url=require("url")
 app.post("/uploadPic",function(req,res){
     var form=new formindable.IncomingForm();
-    //taget to the upload file folder
     form.uploadDir=path.resolve(__dirname,"./www/uploads");
-    //keepExtensions
     form.keepExtensions=true;
-    //res.writeHead(200, {'content-type': 'text/html'});
     form.parse(req,function(err,content,files){
         if(!files) return;
         //when the pic is upload,name gonna be change randomly.then sent the changed name to the front-end
-        //use path.parse to cut some info,in case get attack from hk,sent the rest info to the front
+        //use path.parse to cut some part of the name,in case get attacked from hk,sent the rest info to the front
+        // send path to the frontend  
         res.send(path.parse(files.file.path).base)
     })
 })

@@ -14,7 +14,7 @@ class AddCar extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      current: 1
+      current: 2
     };
   }
 
@@ -85,6 +85,8 @@ class AddCar extends React.Component {
           }
 
           var obj={view,inner,engine,more}
+
+          console.log("images obj******",obj)
 
           //change global data
           this.props.dispatch({

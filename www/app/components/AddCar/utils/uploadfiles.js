@@ -1,4 +1,4 @@
-export default (file,callback1,callback2,url)=>{
+export default (file,cb_pathname,callback2,url)=>{
  
        //local variable,cant use var
        let xhr=new XMLHttpRequest();
@@ -6,16 +6,22 @@ export default (file,callback1,callback2,url)=>{
        //move the files to the formdata
        var fd=new FormData();
        fd.append("file",file)
-       //check the progress of uploading
+
+       //check the progress while uploading
        xhr.upload.onprogress=callback2;
 
-       //callback function
-       xhr.onload = function (e) {
-        callback1(xhr.responseText)
+       //do sth after upload
+       xhr.onload = function(e){
+          cb_pathname(xhr.responseText)// get image path after upload
        }
-       //post request
-       xhr.open("POST",url,true);
+       //post request,and upload
+       xhr.open(
+              "POST",
+              url,
+              true //async
+       );
        //submit formdata file
+       console.log("fd**********",fd)
        xhr.send(fd);
 
 }
