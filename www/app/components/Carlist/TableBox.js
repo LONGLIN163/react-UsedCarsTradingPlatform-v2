@@ -104,7 +104,6 @@ class TableBox extends React.Component {
           showSizeChanger: true//what if we want user chouse how many item show in each page???
         }}
         onChange={(pagination, sorter) => {
-          console.log("sorter***-----",sorter)
           this.props.dispatch({
             "type": "carlist/changePageOrSort",
             "page": pagination.current,

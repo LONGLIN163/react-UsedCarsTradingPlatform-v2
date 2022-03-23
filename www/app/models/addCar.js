@@ -22,6 +22,7 @@ export default {
             engine:[],
             more:[]
         },
+        disableNextInStep2:true,
         step3:{
             files:[]
         }
@@ -39,6 +40,9 @@ export default {
                    state)
 
         },
+        changeStep2Next(state,{activeNextBtn}){
+            return R.set(R.lensProp("disableNextInStep2"),activeNextBtn,state)
+        },    
         changeStep2(state,{obj}){
             return R.set(R.lensProp("step2"),obj,state)
         },    

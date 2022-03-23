@@ -13,92 +13,75 @@ import SalePage from '../../pages/SalePage'
 class AddCar extends React.Component {
   constructor(props) {
     super(props)
+    this.getImagesObj=this.getImagesObj.bind(this)
     this.state = {
-      current: 2
+      current: 2,
     };
   }
 
+  getImagesObj(){
+    var view=[]
+    $(".imgsbox[data-album=view]").find("div.preDiv").each(function(){
+      view.push($(this).data("pathname"))
+    })
+    var inner=[]
+    $(".imgsbox[data-album=inner]").find("div.preDiv").each(function(){
+      inner.push($(this).data("pathname"))
+    })
+    var engine=[]
+    $(".imgsbox[data-album=engine]").find("div.preDiv").each(function(){
+      engine.push($(this).data("pathname"))
+    })
+    var more=[]
+    $(".imgsbox[data-album=more]").find("div.preDiv").each(function(){
+      more.push($(this).data("pathname"))
+    })
+    return {view,inner,engine,more}
+  }
+
+  
   render() {
-    const steps = [{
-      title: 'Info',
-      content:<Step1></Step1> 
 
-    }, {
-      title: 'Imgs',
-      content:<Step2></Step2> 
-    }, {
-      title: 'Attachment',
-      content:<Step3></Step3> 
-    }];
-
+    
     const checkStep1Disabled=()=>{
-
       var step1=this.props.step1
-
       var hasErr=true // initial data is empty, then it should be an error
-      
       for(var k in step1){
         if(step1[k].errors != undefined ){ 
-          // If there is any one is not undefined, which means there is some errors with k field
+          // If any one is not undefined, which means there is some errors with k field
           hasErr=false 
         }
       }
       return !hasErr //if hasErr is true, we need to disable the button
     }
-
+    
+    
     const showButton=()=>{
-       if(this.state.current==1){
-         return <Button 
-         type="primary"
-         disabled={checkStep1Disabled()}
-         onClick={()=>{
-           this.setState({
-             "current":2
-           })
-         }}
-         >Next</Button>
-       }else if(this.state.current==2){
+      if(this.state.current==1){
         return <Button 
         type="primary"
+        disabled={checkStep1Disabled()}
         onClick={()=>{
-          var view=[]
-          $(".imgsbox[data-album=view]").find("div.preDiv").each(function(){
-            view.push($(this).data("pathname"))
+          this.setState({
+            "current":2
           })
-
-          var inner=[]
-          $(".imgsbox[data-album=inner]").find("div.preDiv").each(function(){
-            inner.push($(this).data("pathname"))
-          })
-          var engine=[]
-          $(".imgsbox[data-album=engine]").find("div.preDiv").each(function(){
-            engine.push($(this).data("pathname"))
-          })
-          var more=[]
-          $(".imgsbox[data-album=more]").find("div.preDiv").each(function(){
-            more.push($(this).data("pathname"))
-          })
-
-          if(view.length*inner.length*engine.length*more.length==0){
-            alert("please upload img for all of albums")
-            return
-          }
-
-          var obj={view,inner,engine,more}
-
-          console.log("images obj******",obj)
-
-          //change global data
+        }}
+        >Next</Button>
+      }else if(this.state.current==2){
+        return <Button 
+        type="primary"
+        disabled={this.props.disableNextInStep2}
+        onClick={()=>{
+          const imagesObj=this.getImagesObj()
+          //change global data 
           this.props.dispatch({
             "type":"addCar/changeStep2",
-            obj
+            imagesObj
           })
-
           //go to the next step
           this.setState({
             current:3
           })
-
         }}
         >Next</Button>
       }else if(this.state.current==3){
@@ -112,11 +95,28 @@ class AddCar extends React.Component {
       }
     }
 
+    const steps = [{
+      title: 'Info',
+      content:<Step1/>
+    }, {
+      title: 'Imgs',
+      content:<Step2 getImagesObj={this.getImagesObj}/>
+    }, {
+      title: 'Attachment',
+      content:<Step3/>
+    }];
+
+
+
+
     return (
       <SalePage>
         <Steps current={this.state.current-1}>
           {
-            steps.map(item => <Step key={item.title} title={item.title} />)
+            steps.map(item => <Step 
+              key={item.title} 
+              title={item.title} 
+            />)
           }
         </Steps>
         <div className="content_box">
@@ -137,6 +137,7 @@ class AddCar extends React.Component {
 export default connect(
   ({addCar})=>({
     step1:addCar.step1,
-    step2:addCar.step2
+    step2:addCar.step2,
+    disableNextInStep2:addCar.disableNextInStep2
   })
 )(AddCar)
