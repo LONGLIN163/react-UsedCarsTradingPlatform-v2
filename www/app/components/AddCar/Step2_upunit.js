@@ -1,13 +1,14 @@
 import React from 'react'
 import { Row, Col } from 'antd'
 import uploadfiles from './utils/uploadfiles'
+import {connect} from 'dva';
 
-export default class Step2_upunit extends React.Component {
+
+class Step2_upunit extends React.Component {
     constructor(props) {
         super(props)
     }
 
-    //pack element(will up to dom) to a function
     createFileReaderAndUpload(files){
         var self = this;
         for (let i = 0; i < files.length; i++) {
@@ -38,6 +39,7 @@ export default class Step2_upunit extends React.Component {
                     $imgbox.attr("data-pathname",pathname)
                 },
                 function (e) {
+                    // display progress while on uploading
                     $imgbox.find("i").html(parseInt(e.loaded / e.total * 100) + "%")
                 },
                 "/uploadPic"
@@ -46,8 +48,12 @@ export default class Step2_upunit extends React.Component {
     }
 
     componentDidMount() {
+
+        const props=this.props
+        const {getImagesObj}=this.props
+
         var self = this;
-        //sort
+        //allow imagbox removable or sortable
         $(this.refs.imgsbox).sortable()
 
         //close button -<b> listener
@@ -59,8 +65,27 @@ export default class Step2_upunit extends React.Component {
         //****************click event***************************** */
         $(this.refs.filectrl).bind("change",function(e){
             var files=$(this)[0].files;
-            self.createFileReaderAndUpload(files)
-        });
+            self.createFileReaderAndUpload(files) 
+
+            // because xhr onprogerss needed, then use setTimeout here
+            setTimeout(()=>{
+                var activeNextBtn=true 
+                const imagesObj=getImagesObj()
+                for(var k in imagesObj){
+                    if(imagesObj[k].length==0){
+                        activeNextBtn=false
+                    }
+                }
+                if(activeNextBtn){
+                    props.dispatch({
+                        "type":"addCar/changeStep2Next",
+                        activeNextBtn:!activeNextBtn
+                    })
+                }
+            },600)   
+
+        })
+
         //****************drag event****************** */
         $(this.refs.imgsbox).bind("dragover", function (e) {
             e.preventDefault();
@@ -78,22 +103,20 @@ export default class Step2_upunit extends React.Component {
             self.createFileReaderAndUpload(files)// triggle upload after mouse drop 
         });
     }
+
     render() {
         return (
             <div>
                 <div className="hd">
-
                     <Row>
                         <Col span={4}>
                             <h3>Please add {this.props.title} images</h3>
-
                         </Col>
                         <Col span={4}>
                             <div 
                                 className="uploadFiled" 
                                 ref="uploadFiled" 
                                 onClick={()=>{ // mock 'input' click
-                                 console.log("mock click******",this.refs.filectrl)
                                  $(this.refs.filectrl) 
                                  .trigger("click");
                                 }}
@@ -109,3 +132,9 @@ export default class Step2_upunit extends React.Component {
         )
     }
 }
+
+export default connect(
+    ({addCar})=>({
+      disableNextInStep2:addCar.disableNextInStep2
+    })
+  )(Step2_upunit)

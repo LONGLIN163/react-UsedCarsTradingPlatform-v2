@@ -1,3 +1,5 @@
+
+// **********************************************************
 export default (file,cb_pathname,callback2,url)=>{
  
        //local variable,cant use var
@@ -10,18 +12,17 @@ export default (file,cb_pathname,callback2,url)=>{
        //check the progress while uploading
        xhr.upload.onprogress=callback2;
 
-       //do sth after upload
-       xhr.onload = function(e){
-          cb_pathname(xhr.responseText)// get image path after upload
-       }
        //post request,and upload
        xhr.open(
               "POST",
               url,
               true //async
-       );
+              );
        //submit formdata file
-       console.log("fd**********",fd)
        xhr.send(fd);
-
+              
+       //do sth after upload
+       xhr.onload = function(e){
+         cb_pathname(xhr.responseText)// get image path after upload
+       }
 }
