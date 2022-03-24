@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button,Modal } from 'antd';
+import { Button,Modal,message } from 'antd';
 import uploadfiles from './utils/uploadfiles'
 import Step3_ModalItem from './Step3_ModalItem'
 import Step3_filebar from './Step3_filebar'
@@ -27,7 +27,9 @@ class Step3 extends React.Component {
 
   changeFileName(filename,changedFilename){
     this.setState({
-      currentUpload:this.state.currentUpload.map(item=>item.filename==filename?{...item,changedFilename}:item)
+      currentUpload:this.state.currentUpload.map(item=>
+          item.filename==filename ? {...item,changedFilename} : item
+        )
     })
   }
   componentDidMount() {
@@ -36,20 +38,22 @@ class Step3 extends React.Component {
     $(this.refs.filectrl).bind("change", function (e) {
       var files = $(this)[0].files;
       //conver files to an arr
-      files=[...files]
+      files=[...files] 
+      console.log("files******",files)
       //loop files and change currentUpload
       var arr=files.map(item=>(
           {
-            "filename":item.name,
+            "filename":item.name, // original name
             "changedFilename":item.name,
-            "progress":50
+            "progress":0
           }
       ));
       self.setState({
         currentUpload:arr
       })
 
-      for(var i=0;i<files.length;i++){
+      // upload files
+      for(let i=0;i<files.length;i++){
         let filename=files[i].name
         uploadfiles(
           files[i],
@@ -57,14 +61,20 @@ class Step3 extends React.Component {
             //done
           },
           function(e){
+            console.log(123)
+            if (files[i].size > 5*1024*1024) { 
+              message.info('Please upload a file less than 5MB,thank you!');// excute twice???
+              return;
+            }
             //progress
             var progress=parseInt(e.loaded / e.total * 100)
+            console.log("progress******",progress)
             self.setState({
               currentUpload:self.state.currentUpload.map(item=>{
                 if(item.filename==filename){
                   return {
                     ...item,
-                    progress
+                    progress // only change progress
                   }
                 }
                 return item
@@ -114,7 +124,7 @@ class Step3 extends React.Component {
                  })
                 }}
               onCancel={()=>{
-                  this.setState({
+                  this.setState({ 
                   showModal:false
                   })
 

@@ -29,11 +29,12 @@ class Step3_rename extends React.Component {
                         <Input 
                             value={this.props.item.changedFilename} 
                             onChange={(e)=>{
-                                this.props.dispatch({
-                                    "type":"addCar/changeStep3OneFilename",
-                                    "filename":filename,
-                                    "changedFilename":e.target.value})
-                        }}/>
+                              this.props.dispatch({
+                                "type":"addCar/changeStep3OneFilename",
+                                "filename":filename,
+                                "changedFilename":e.target.value})
+                            }}
+                        />
                     </div>    
                 </Col>
             </Row>

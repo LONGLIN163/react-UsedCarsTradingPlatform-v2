@@ -47,7 +47,7 @@ export default {
             return R.set(R.lensProp("step2"),obj,state)
         },    
         changeStep3(state,{arr}){
-            var files=R.clone(state.step3.files)
+            var files=R.clone(state.step3.files)// deep clone 
             files=files.concat(arr)
             return R.set(R.lensProp("step3"),R.set(R.lensProp("files"),files,state.step3),state)
         },

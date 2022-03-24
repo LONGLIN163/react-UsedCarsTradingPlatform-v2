@@ -19,7 +19,7 @@ export default class Step3_ModalItem extends React.Component {
     }
 
     return (
-      <div>
+      <div> 
          <Row>
               <Col span={4}>
                 <img src={icon} alt="" className="icons"/>
