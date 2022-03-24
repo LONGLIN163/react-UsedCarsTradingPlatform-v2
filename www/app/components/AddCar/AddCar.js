@@ -15,7 +15,7 @@ class AddCar extends React.Component {
     super(props)
     this.getImagesObj=this.getImagesObj.bind(this)
     this.state = {
-      current: 3,
+      current: 1,
     };
   }
 
