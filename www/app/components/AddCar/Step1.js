@@ -29,7 +29,6 @@ class Step1 extends React.Component {
                     }))
                 })
             }
-            //console.log("brandAndSeriesOption******",brandAndSeriesOption)
             this.setState({
                 brandAndSeriesOption
             })

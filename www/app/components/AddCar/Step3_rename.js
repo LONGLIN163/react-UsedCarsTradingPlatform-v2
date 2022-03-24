@@ -1,5 +1,5 @@
 import React from 'react'
-import {Row,Col,Menu, Dropdown, Button,Input} from 'antd'
+import {Row,Col,Input} from 'antd'
 import {connect} from 'dva'
 class Step3_rename extends React.Component {
     constructor(){

@@ -89,10 +89,7 @@ class Step3 extends React.Component {
       self.setState({
         showModal:true
       })
-
-
     });
-
   }
 
   render() {
@@ -149,7 +146,7 @@ class Step3 extends React.Component {
               visible={this.state.showModalRename}
               onOk={()=>{
                  this.setState({
-                  showModalRename:true
+                  showModalRename:false
                  })
                 }}
               onCancel={()=>{
