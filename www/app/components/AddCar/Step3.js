@@ -68,7 +68,6 @@ class Step3 extends React.Component {
             }
             //progress
             var progress=parseInt(e.loaded / e.total * 100)
-            console.log("progress******",progress)
             self.setState({
               currentUpload:self.state.currentUpload.map(item=>{
                 if(item.filename==filename){
@@ -115,7 +114,10 @@ class Step3 extends React.Component {
               title="Upload"
               visible={this.state.showModal}
               onOk={()=>{
-                this.props.dispatch({"type":"addCar/changeStep3","arr":this.state.currentUpload})
+                this.props.dispatch({
+                  "type":"addCar/changeStep3",
+                  "arr":this.state.currentUpload
+                })
                  this.setState({
                   showModal:false
                  })

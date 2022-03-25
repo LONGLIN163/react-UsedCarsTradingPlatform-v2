@@ -15,7 +15,7 @@ class AddCar extends React.Component {
     super(props)
     this.getImagesObj=this.getImagesObj.bind(this)
     this.state = {
-      current: 3,
+      current: 1,
     };
   }
 
@@ -41,7 +41,6 @@ class AddCar extends React.Component {
 
   
   render() {
-
     
     const checkStep1Disabled=()=>{
       var step1=this.props.step1
@@ -54,7 +53,6 @@ class AddCar extends React.Component {
       }
       return !hasErr //if hasErr is true, we need to disable the button
     }
-    
     
     const showButton=()=>{
       if(this.state.current==1){
@@ -76,7 +74,7 @@ class AddCar extends React.Component {
           //change global data 
           this.props.dispatch({
             "type":"addCar/changeStep2",
-            imagesObj
+            "obj":imagesObj
           })
           //go to the next step
           this.setState({

@@ -202,15 +202,18 @@ app.post("/addCar",function(req,res){
         var licenseplate=Boolean(step1.licenseplate.value);
         var locality=Boolean(step1.locality.value);
         var eco=step1.eco.value;
+
         var imgs=step2;
+
         var files=step3;
-        //console.log("imgs",imgs)
+
+        console.log("step1******",step1)
+        console.log("step2******",step2)
+        console.log("step3******",step3)
 
         //find max id
         Car.find({}).sort({"id":-1}).limit(1).exec((err,docs)=>{
-            //console.log("docs-----",docs)
-            console.log("&&&&&&&&&&&&&&&",docs[0].id)
-            var id=docs[0].id+1;
+            var id=docs[0].id+1; // here we use last id+1
             let path=require('path')
 
             /*******************create file folder****************** */

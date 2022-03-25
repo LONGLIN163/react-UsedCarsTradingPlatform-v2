@@ -15,3 +15,5 @@ node_modules
 ### Webpack ###
 www/uploads/
 www/dist/
+www/carimgs/
+www/carimgs_small/

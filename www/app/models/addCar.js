@@ -49,7 +49,14 @@ export default {
         changeStep3(state,{arr}){
             var files=R.clone(state.step3.files)// deep clone 
             files=files.concat(arr)
-            return R.set(R.lensProp("step3"),R.set(R.lensProp("files"),files,state.step3),state)
+            return R.set(
+                R.lensProp("step3"),
+                R.set(
+                    R.lensProp("files"),
+                    files,
+                    state.step3
+                ),
+                state)
         },
         changeStep3OneFilename(state,{filename,changedFilename}){
             return R.set(R.lensProp("step3"),R.set(R.lensProp("files"),state.step3.files.map(item=>{
@@ -66,6 +73,7 @@ export default {
     effects:{
         *addCar(action,{put,select}){
             const {step1,step2,step3}=yield select(state=>state.addCar);
+
             yield fetch("/addCar",{
                 "method":"POST",
                 "headers":{
