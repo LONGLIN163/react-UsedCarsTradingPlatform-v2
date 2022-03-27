@@ -26,8 +26,6 @@
     "less-loader": "^4.1.0",
     "lodash": "^4.17.19",
     "mongoose": "^5.7.5",
-    "rc-banner-anim": "^2.4.5",
-    "rc-tween-one": "^2.7.3",
     "redux-logger": "^3.0.6",
     "style-loader": "^0.23.1",
     "webpack": "^4.42.0",
@@ -42,7 +40,6 @@
     "gm": "^1.23.1",
     "ramda": "^0.26.1",
     "react": "^16.8.6",
-    "react-bootstrap-carousel": "^3.4.1",
     "react-dom": "^16.8.6"
   },
   "theme": {
