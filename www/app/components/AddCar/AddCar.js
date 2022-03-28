@@ -39,9 +39,7 @@ class AddCar extends React.Component {
     return {view,inner,engine,more}
   }
 
-  
   render() {
-    
     const checkStep1Disabled=()=>{
       var step1=this.props.step1
       var hasErr=true // initial data is empty, then it should be an error
@@ -104,9 +102,6 @@ class AddCar extends React.Component {
       content:<Step3/>
     }];
 
-
-
-
     return (
       <SalePage>
         <Steps current={this.state.current-1}>
@@ -123,9 +118,9 @@ class AddCar extends React.Component {
           }
         </div>
         <div className="btn_box">
-                {
-                  showButton()
-                }
+          {
+            showButton()
+          }
         </div>
       </SalePage>
     )

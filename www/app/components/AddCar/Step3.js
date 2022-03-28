@@ -4,6 +4,8 @@ import uploadfiles from './utils/uploadfiles'
 import Step3_ModalItem from './Step3_ModalItem'
 import Step3_filebar from './Step3_filebar'
 import Step3_rename from './Step3_rename'
+import _ from 'lodash';
+
 
 import {connect} from 'dva'
 
@@ -14,7 +16,7 @@ class Step3 extends React.Component {
       showModal:false,
       showModalRename:false,
       currentUpload:[],
-      renamedFilename:""
+      renamedFilename:"",
     }
   }
 
@@ -25,6 +27,13 @@ class Step3 extends React.Component {
     })
   }
 
+  delItemFromShowModal(itemDel){    
+      this.props.dispatch({
+        "type":"addCar/delStep3OneFilename",
+        "itemDel":itemDel
+      })
+  }
+
   changeFileName(filename,changedFilename){
     this.setState({
       currentUpload:this.state.currentUpload.map(item=>
@@ -32,7 +41,9 @@ class Step3 extends React.Component {
         )
     })
   }
+
   componentDidMount() {
+    
     //****************listion the click event***************************** */
     var self=this
     $(this.refs.filectrl).bind("change", function (e) {
@@ -104,13 +115,14 @@ class Step3 extends React.Component {
             {
               this.props.files.map((item,index)=>{         
                return <Step3_filebar 
-                  key={index} 
+                  key={index+item.filename} 
                   item={item}
                   changeShowModalRename={this.changeShowModalRename.bind(this)}
+                  delItemFromShowModal={this.delItemFromShowModal.bind(this)}
                ></Step3_filebar>
               })
             }
-            <Modal
+          <Modal
               title="Upload"
               visible={this.state.showModal}
               onOk={()=>{

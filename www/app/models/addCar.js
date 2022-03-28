@@ -68,6 +68,16 @@ export default {
                 }
                 return item
             }),state.step3),state)
+        },    
+        delStep3OneFilename(state,{itemDel}){
+            console.log
+            return R.set(
+                R.lensProp("step3"),
+                R.set(
+                    R.lensProp("files"),
+                    state.step3.files.filter(({filename})=>filename!==itemDel),
+                    state.step3),
+                state)
         }    
     },
     effects:{
