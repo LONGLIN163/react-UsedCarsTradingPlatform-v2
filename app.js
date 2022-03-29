@@ -207,46 +207,37 @@ app.post("/addCar",function(req,res){
 
         var files=step3;
 
-        console.log("step1******",step1)
-        console.log("step2******",step2)
-        console.log("step3******",step3)
-
         //find max id
         Car.find({}).sort({"id":-1}).limit(1).exec((err,docs)=>{
-            var id=docs[0].id+1; // here we use last id+1
-            let path=require('path')
+            var id=docs[0].id+1; // here we use last id+1 as new car id
 
+            console.log("new car id***",id)
+            
             /*******************create file folder****************** */
-
+            let path=require('path')
+            // create image folders
             fs.mkdirSync(path.resolve(__dirname,"./www/carimgs/"+id))
             fs.mkdirSync(path.resolve(__dirname,"./www/carimgs_small/"+id))
+            // create big imgs folder
             fs.mkdirSync(path.resolve(__dirname,"./www/carimgs/"+id+"/view"))
             fs.mkdirSync(path.resolve(__dirname,"./www/carimgs/"+id+"/inner"))
             fs.mkdirSync(path.resolve(__dirname,"./www/carimgs/"+id+"/engine"))
             fs.mkdirSync(path.resolve(__dirname,"./www/carimgs/"+id+"/more"))
-    
+            // create small imgs folder
             fs.mkdirSync(path.resolve(__dirname,"./www/carimgs_small/"+id+"/view"))
             fs.mkdirSync(path.resolve(__dirname,"./www/carimgs_small/"+id+"/inner"))
             fs.mkdirSync(path.resolve(__dirname,"./www/carimgs_small/"+id+"/engine"))
             fs.mkdirSync(path.resolve(__dirname,"./www/carimgs_small/"+id+"/more"))
-
-            console.log("11111111111111111111111111111111")
-            
-            //for(var i=0;i<imgs.view.length;i++){
-                for(let i=0;i<imgs.view.length;i++){
-                console.log("Fuuuuuuuuuuuuuuuuuuuuuuucccccccccccccckkkk")
-                console.log("xxxxxx",imgs.view[i])
-                fs.renameSync(
+            // move images to relavent folders
+            for(let i=0;i<imgs.view.length;i++){
+                fs.renameSync( // renameSync module moves files
                     path.resolve(__dirname,"./www/uploads/"+imgs.view[i]),
                     path.resolve(__dirname,"./www/carimgs/"+id+"/view/"+imgs.view[i])
                 )
                 gm(path.resolve(__dirname,"./www/carimgs/"+id+"/view/"+imgs.view[i]))
                 .resize(150,100)
-                .write(path.resolve(__dirname,"./www/carimgs_small/"+id+"/view/"+"tb"+imgs.view[i]),function(){
-
-                })
+                .write(path.resolve(__dirname,"./www/carimgs_small/"+id+"/view/"+"tb"+imgs.view[i]),function(){})
             }
-            //for(var i=0;i<imgs.inner.length;i++){
             for(let i=0;i<imgs.inner.length;i++){
                 fs.renameSync(
                     path.resolve(__dirname,"./www/uploads/"+imgs.inner[i]),
@@ -254,11 +245,8 @@ app.post("/addCar",function(req,res){
                 )
                 gm(path.resolve(__dirname,"./www/carimgs/"+id+"/inner/"+imgs.inner[i]))
                 .resize(150,100)
-                .write(path.resolve(__dirname,"./www/carimgs_small/"+id+"/inner/"+"tb"+imgs.inner[i]),function(){
-
-                })
+                .write(path.resolve(__dirname,"./www/carimgs_small/"+id+"/inner/"+"tb"+imgs.inner[i]),function(){})
             }
-            //for(var i=0;i<imgs.engine.length;i++){
             for(let i=0;i<imgs.engine.length;i++){
                 fs.renameSync(
                     path.resolve(__dirname,"./www/uploads/"+imgs.engine[i]),
@@ -266,11 +254,8 @@ app.post("/addCar",function(req,res){
                 )
                 gm(path.resolve(__dirname,"./www/carimgs/"+id+"/engine/"+imgs.engine[i]))
                 .resize(150,100)
-                .write(path.resolve(__dirname,"./www/carimgs_small/"+id+"/engine/"+"tb"+imgs.engine[i]),function(){
-
-                })
+                .write(path.resolve(__dirname,"./www/carimgs_small/"+id+"/engine/"+"tb"+imgs.engine[i]),function(){})
             }
-            //for(var i=0;i<imgs.more.length;i++){
             for(let i=0;i<imgs.more.length;i++){
                 fs.renameSync(
                     path.resolve(__dirname,"./www/uploads/"+imgs.more[i]),
@@ -278,11 +263,9 @@ app.post("/addCar",function(req,res){
                 )
                 gm(path.resolve(__dirname,"./www/carimgs/"+id+"/more/"+imgs.more[i]))
                 .resize(150,100)
-                .write(path.resolve(__dirname,"./www/carimgs_small/"+id+"/more/"+"tb"+imgs.more[i]),function(){
-
-                })
+                .write(path.resolve(__dirname,"./www/carimgs_small/"+id+"/more/"+"tb"+imgs.more[i]),function(){})
             }
-
+            // create an car obj
             var obj={
                 id,
                 brand,
@@ -301,19 +284,14 @@ app.post("/addCar",function(req,res){
                 imgs,
                 files
             }
-            console.log(obj)
             
             /*******create new car********* */
-            Car.create(obj,function(){
-                console.log("ok")
-                
-                res.send("ok")
+            Car.create(obj,function(){                
+                res.json({
+                    newCarId:id
+                })
             })
         })
-
-
-        //res.send("ok")
-
     })
 })
 

@@ -20,13 +20,11 @@ class App extends React.Component {
                   defaultSelectedKeys={[this.props.pathname]}
                   style={{ lineHeight: '64px' }}
                   onClick={(e)=>{
-                    console.log(e)
                     if(e.key==this.props.pathname) return;
                     this.props.dispatch(push(e.key))
                   }}
                 >
                   <Menu.Item key="/">Find Your Car</Menu.Item>
-                  {/* <Menu.Item key="/buy/carlist">buy</Menu.Item> */}
                   <Menu.Item key="/sale/addcar">Sell Your Car</Menu.Item>
                 </Menu>
               </Header>

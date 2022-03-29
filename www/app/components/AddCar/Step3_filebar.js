@@ -32,7 +32,9 @@ export default class Step3_filebar extends React.Component {
                     <a href="javascript:;" onClick={()=>{
                         this.props.changeShowModalRename(true,this.props.item.filename)
                     }}>Rename</a>
-                    <a href="javascript:;">Delete</a>
+                    <a href="javascript:;" onClick={()=>{
+                        this.props.delItemFromShowModal(this.props.item.filename)
+                    }}>Delete</a>
                 </div>
               </Col>
             </Row>
