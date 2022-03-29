@@ -210,6 +210,8 @@ app.post("/addCar",function(req,res){
         //find max id
         Car.find({}).sort({"id":-1}).limit(1).exec((err,docs)=>{
             var id=docs[0].id+1; // here we use last id+1 as new car id
+
+            console.log("new car id***",id)
             
             /*******************create file folder****************** */
             let path=require('path')
@@ -285,7 +287,9 @@ app.post("/addCar",function(req,res){
             
             /*******create new car********* */
             Car.create(obj,function(){                
-                res.send("ok")
+                res.json({
+                    newCarId:id
+                })
             })
         })
     })

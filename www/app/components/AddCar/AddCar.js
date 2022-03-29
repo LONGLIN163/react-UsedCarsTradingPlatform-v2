@@ -10,6 +10,9 @@ import './AddCar.less'
 import {connect} from 'dva';
 import SalePage from '../../pages/SalePage'
 
+import {push} from 'react-router-redux'
+
+
 class AddCar extends React.Component {
   constructor(props) {
     super(props)
@@ -37,6 +40,20 @@ class AddCar extends React.Component {
       more.push($(this).data("pathname"))
     })
     return {view,inner,engine,more}
+  }
+
+  createCarYgoToNewCar() {
+    new Promise( (resolve,err) => {
+      this.props.dispatch({
+        "type":"addCar/addCar",
+        "payload":{
+          resolve
+        }
+      })
+    }).then(res=>{
+      this.props.dispatch(push("/picshow/"+res))
+    })
+    
   }
 
   render() {
@@ -84,7 +101,7 @@ class AddCar extends React.Component {
         return <Button
         type="primary"
         onClick={()=>{
-          this.props.dispatch({"type":"addCar/addCar"})
+          this.createCarYgoToNewCar()
         }}
         >Submit</Button>
  
@@ -131,6 +148,7 @@ export default connect(
   ({addCar})=>({
     step1:addCar.step1,
     step2:addCar.step2,
-    disableNextInStep2:addCar.disableNextInStep2
+    disableNextInStep2:addCar.disableNextInStep2,
+    newCarId:addCar.newCarId
   })
 )(AddCar)

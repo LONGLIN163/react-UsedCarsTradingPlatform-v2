@@ -25,7 +25,8 @@ export default {
         disableNextInStep2:true,
         step3:{
             files:[]
-        }
+        },
+        newCarId:''
     },
     reducers:{
         changeStep1(state,{propname,value}){
@@ -78,11 +79,15 @@ export default {
                     state.step3.files.filter(({filename})=>filename!==itemDel),
                     state.step3),
                 state)
-        }    
+        } ,
+        changeNewCarId(state,{newCarId}){
+            return R.set(R.lensProp("newCarId"),newCarId,state)
+        }  
     },
     effects:{
         *addCar(action,{put,select}){
             const {step1,step2,step3}=yield select(state=>state.addCar);
+            const {resolve}=action.payload
 
             yield fetch("/addCar",{
                 "method":"POST",
@@ -96,8 +101,15 @@ export default {
                     step3
                 })
             })
+            .then(response => response.json())
+            .then(data =>{
+                put({
+                    "type":"newCarId",
+                    "newCarId":data.newCarId
+                });
+                resolve(data.newCarId)
+            });   
         }
-        
     }
 }
 
