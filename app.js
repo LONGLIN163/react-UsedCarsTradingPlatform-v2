@@ -10,17 +10,17 @@ var mongoose=require("mongoose")
 
 //******connect to development db******
 mongoose.connect("mongodb://localhost:27017/coolcars", { useNewUrlParser: true });
+
 //******connect to production db******
-/*
-mongoose.connect('mongodb+srv://developerlin:Long2021..  .@cluster0.r4ghm.mongodb.net/coolcars?retryWrites=true&w=majority', { 
-	useNewUrlParser: true,
-	useCreateIndex:true
-}).then(()=>{
-	console.log("Connect to db success");
-}).catch(err=>{
-	console.log("ERROR",err.message);
-});
-*/
+// mongoose.connect('mongodb+srv://developerlin:Long2021...@cluster0.r4ghm.mongodb.net/coolcars?retryWrites=true&w=majority', { 
+// 	useNewUrlParser: true,
+// 	useCreateIndex:true
+// }).then(()=>{
+// 	console.log("Connect to db success");
+// }).catch(err=>{
+// 	console.log("ERROR",err.message);
+// });
+
 
 //import the model file
 var Car=require("./models/Car")
@@ -77,10 +77,7 @@ app.get("/brandAndSeries",(req,res)=>{
 })
 
 /****************** create a API to get cars info*********************/
-//use post to ge request result,we need to use formidable
-//formidable is a library can recognize the post request
 app.post("/cars",function(req,res){
-        //formidable syntax
         var form=new formindable.IncomingForm();
         form.parse(req,(err,{filters,pageInfo,sortInfo})=>{
 
@@ -150,8 +147,6 @@ app.post("/cars",function(req,res){
 
 /****************** upload API(H5) for imgs*********************/
 
-
-//var url=require("url")
 app.post("/uploadPic",function(req,res){
     var form=new formindable.IncomingForm();
     form.uploadDir=path.resolve(__dirname,"./www/uploads");
@@ -301,7 +296,6 @@ app.listen(3000,(err)=>{
 })
 
 //******production port******
-/*
-app.listen(process.env.PORT, '0.0.0.0');
-console.log("The app is running on server!")
-*/
+
+// app.listen(process.env.PORT, '0.0.0.0');
+// console.log("The app is running on server!")
