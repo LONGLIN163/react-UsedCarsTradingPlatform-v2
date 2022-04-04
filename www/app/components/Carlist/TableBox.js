@@ -40,6 +40,8 @@ class TableBox extends React.Component {
     //use the order of cols in state to change or define table columns
     const columnsArr = this.state.cols.map(item => columns[item])
 
+    console.log("columnsArr******",columnsArr)
+
     //receive new cols order from child(drag tag),change cols(for ok button)
     var tempCol=[];
     const getColsInfo=(colsOrder)=>{
@@ -103,7 +105,9 @@ class TableBox extends React.Component {
           total: this.props.count,
           showSizeChanger: true//what if we want user chouse how many item show in each page???
         }}
-        onChange={(pagination, sorter) => {
+        onChange={(pagination,filter, sorter) => {
+          //***antd bug here, we have to pass filter as well, otherwise we can not get 'sorter'***
+          console.log("sorter******",sorter)
           this.props.dispatch({
             "type": "carlist/changePageOrSort",
             "page": pagination.current,
