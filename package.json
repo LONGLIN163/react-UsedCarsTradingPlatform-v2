@@ -6,7 +6,7 @@
   "scripts": {
     "heroku-prebuild": "npm install --only=dev",
     "service": "node app.js",
-    "build": "webpack",
+    "build": "npx webpack",
     "start": "npx webpack-dev-server"
   },
   "author": "",
