@@ -10,17 +10,6 @@ module.exports = {
         filename: "bundle.js", //final file
         publicPath:"",//add prefix in the url,using for production
     },
-    // devServer: {
-    //     contentBase: './www/', //static file, the place of index.html or some file not be packed
-    //     publicPath:'/dist/', //packed and served file will be in this virtual folder  
-    //     hot: true, //trigger hmr
-    //     historyApiFallback: true, //if 404, refresh, roll back the same page.
-    //     host: '127.0.0.1', // set custom host address
-    //     //port: 6666, //not ok
-    //     //port: 3001,//ok
-    //     port: 8000//ok
-    // },
-    //watch:true,
     module: {
         rules: [
             {
