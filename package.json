@@ -4,7 +4,6 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "heroku-prebuild": "npm install --only=dev",
     "service": "node app.js",
     "build": "npx webpack",
     "start": "npx webpack-dev-server",
