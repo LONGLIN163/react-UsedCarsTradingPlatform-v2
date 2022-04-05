@@ -7,7 +7,8 @@
     "heroku-prebuild": "npm install --only=dev",
     "service": "node app.js",
     "build": "npx webpack",
-    "start": "npx webpack-dev-server"
+    "start": "npx webpack-dev-server",
+    "heroku-postbuild": "echo Skip build on Heroku"
   },
   "author": "",
   "license": "ISC",
@@ -44,5 +45,6 @@
   },
   "theme": {
     "primary-color": "red"
-  }
+  },
+  "heroku-run-build-script": true
 }
