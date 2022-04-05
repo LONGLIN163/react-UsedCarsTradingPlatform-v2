@@ -6,7 +6,7 @@ module.exports = {
     devtool:"source-map", 
     entry: "./www/app/main", 
     output: {
-        path: path.resolve(__dirname, "./www/dist"), //the folder of the final packaged file
+        path: path.resolve(__dirname, "www/dist"), //the folder of the final packaged file
         filename: "bundle.js", //final file
         publicPath:"",//add prefix in the url,using for production
     },
