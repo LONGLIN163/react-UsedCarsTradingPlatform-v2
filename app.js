@@ -291,11 +291,11 @@ app.post("/addCar",function(req,res){
 })
 
 //******test port******
-app.listen(3000,(err)=>{
-    console.log("service is running run at 3000 port")
-})
+// app.listen(3000,(err)=>{
+//     console.log("service is running run at 3000 port")
+// })
 
 //******production port******
 
-// app.listen(process.env.PORT, '0.0.0.0');
-// console.log("The app is running on server!")
+app.listen(process.env.PORT, '0.0.0.0');
+console.log("The app is running on server!")
