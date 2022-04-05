@@ -20,7 +20,7 @@ module.exports = {
         //port: 3001,//ok
         port: 8000//ok
     },
-    watch:true,
+    //watch:true,
     module: {
         rules: [
             {
