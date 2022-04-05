@@ -6,8 +6,7 @@
   "scripts": {
     "service": "node app.js",
     "build": "npx webpack",
-    "start": "npx webpack-dev-server",
-    "heroku-postbuild": "echo Skip build on Heroku"
+    "start": "npx webpack-dev-server"
   },
   "author": "",
   "license": "ISC",
@@ -44,6 +43,5 @@
   },
   "theme": {
     "primary-color": "red"
-  },
-  "heroku-run-build-script": true
+  }
 }
