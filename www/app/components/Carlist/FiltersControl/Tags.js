@@ -6,9 +6,7 @@ import moment from 'moment'
 class Tags extends React.Component {
   constructor(props){
       super(props)
-
   }
-   
 
   render() {
     return (
@@ -44,7 +42,6 @@ class Tags extends React.Component {
                                   onClose={(e)=>{
                                       e.preventDefault();
                                       this.props.dispatch({"type":"carlist/changeFilter","propsname":item,"value":[]})
-                                      //this.props.dispatch({"type":"carlist/changeFilter","propsname":"series","value":[]})
                                   }}>
                                   {item}:{this.props.filters[item]}
                       </Tag>

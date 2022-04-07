@@ -14,7 +14,6 @@ export default class MyModal extends React.Component {
         $(self.refs.ul1).find("li").each(function(){
           arr.push($(this).data("tag"));
         })
-        console.log(arr)
         self.props.getColsInfo(arr)
       }
     }).disableSelection();

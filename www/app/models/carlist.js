@@ -103,7 +103,6 @@ export default {
             //get current pagesize first to see if user want to change pagesize
             var {pageInfo}=yield select(data=>data.carlist);
             var {sortInfo}=yield select(data=>data.carlist);
-            console.log("sortInfo******",sortInfo)
             if(pagesize){
                 //if user select option and change pagesize,different with last pagesize.change page to 1.
                 page=pagesize!=pageInfo.pagesize?1:page;//first pagesize is the data passed here,the second pagesize is last pagesize

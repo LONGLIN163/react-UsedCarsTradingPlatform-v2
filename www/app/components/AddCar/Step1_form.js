@@ -251,7 +251,6 @@ export default class Step1_form extends React.Component {
                   {
                     //input a number in a scope
                     validator: function(rule, value, callback){
-                      //console.log(value)
                       value=Number(value);//it gonna be NaN if value is not number,NaN can not be compared 
                       if(!(parseFloat(value)>=0&&parseFloat(value)<=10000)){
                         callback("Please input number between 0-10000");

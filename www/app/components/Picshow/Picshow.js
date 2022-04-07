@@ -10,7 +10,6 @@ import BigImgbox from './BigImgbox'
 import App from '../../pages/App'
 import {Row, Col, Breadcrumb, Icon} from 'antd';
 
-
 class Picshow extends React.Component {
   constructor(props){
     super(props)

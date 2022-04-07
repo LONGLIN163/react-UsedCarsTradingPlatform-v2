@@ -17,14 +17,12 @@ class Brand extends React.Component {
             options:result
           })
         })
-
     }
     
   async loadServer(callback){
     const result=await fetch("/brandAndSeries").then(data=>data.json());
     callback(result);
   }
-
 
   render() {
 

@@ -19,7 +19,6 @@ export default class FilterBox extends React.Component {
     }
   }
   setnowseries(nowseries){
-    console.log("currentSeries",nowseries)
     this.setState({nowseries});
   }
   render() {

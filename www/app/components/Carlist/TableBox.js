@@ -104,7 +104,6 @@ class TableBox extends React.Component {
         }}
         onChange={(pagination,filter, sorter) => {
           //***antd bug here, we have to pass filter as well, otherwise we can not get 'sorter'***
-          console.log("sorter******",sorter)
           this.props.dispatch({
             "type": "carlist/changePageOrSort",
             "page": pagination.current,

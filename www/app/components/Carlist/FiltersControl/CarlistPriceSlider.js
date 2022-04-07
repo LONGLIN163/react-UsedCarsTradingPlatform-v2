@@ -35,11 +35,9 @@ class CarlistPriceSlider extends React.Component {
                             defaultValue={this.props.filters.price}
                             value={this.state.price}
                             onAfterChange={(value)=>{//sent the action to the models
-                                //console.log(value)
                                 this.props.dispatch({"type":"carlist/changeFilter","propsname":"price",value})
                             }}
                             onChange={(value)=>{//make use can see the price when move slider
-                                //console.log(value)
                                 this.setState({
                                     min:value[0],
                                     max:value[1],
@@ -84,12 +82,7 @@ class CarlistPriceSlider extends React.Component {
                         </Col>
                     </Row>
                 </Col>
-
-            </Row>
-
-
-
-        
+            </Row>    
       </div>
     )
   }

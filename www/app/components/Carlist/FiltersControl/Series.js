@@ -19,12 +19,9 @@ class Series extends React.Component {
     return true;
   }
 
-
   render() {
-
     return (
       <div>
-
          {
              this.props.nowseries.map(item=>{
                  return <em 

@@ -21,15 +21,11 @@ class CarlistKmSlider extends React.Component {
         })})
     }
 
-
-
   render() {
     return (
         <div>
-
             <Row>
                 <Col xs={24} sm={24} md={12} lg={12} xl={12}>
-                
                         <Slider 
                             range 
                             min={0} 
@@ -39,13 +35,11 @@ class CarlistKmSlider extends React.Component {
                             })}
                             value={this.state.km}
                             onAfterChange={(value)=>{//sent the action to the models
-                                //console.log(value)
                                 this.props.dispatch({"type":"carlist/changeFilter","propsname":"km","value":value.map(i=>{
                                     return i*10000
                                 })})
                             }}
                             onChange={(value)=>{//make use can see the price when move slider
-                                //console.log(value)
                                 this.setState({
                                     min:value[0],
                                     max:value[1],
@@ -53,7 +47,6 @@ class CarlistKmSlider extends React.Component {
                                 })
                             }}
                         ></Slider>
-                        
                 </Col>
 
                 <Col xs={24} sm={24} md={12} lg={12} xl={12}>

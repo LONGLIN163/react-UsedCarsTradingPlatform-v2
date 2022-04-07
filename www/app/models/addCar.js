@@ -71,7 +71,6 @@ export default {
             }),state.step3),state)
         },    
         delStep3OneFilename(state,{itemDel}){
-            console.log
             return R.set(
                 R.lensProp("step3"),
                 R.set(
