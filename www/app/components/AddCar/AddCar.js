@@ -1,5 +1,5 @@
 import React from 'react'
-import { Steps, Button} from 'antd';
+import { Steps, Button,Row,Col,Breadcrumb,Icon} from 'antd';
 const Step = Steps.Step;
 
 import Step1 from './Step1'
@@ -121,6 +121,15 @@ class AddCar extends React.Component {
 
     return (
       <SalePage>
+          <Row className="breadNav" type="flex" justify="left">
+            <Col className="comm-left" xs={24} sm={24} md={16} lg={18} xl={14}  >
+              <div>
+                <Breadcrumb.Item href="">
+                    <Icon type="edit" /> Sell Cars             
+                </Breadcrumb.Item>
+              </div>
+            </Col>
+          </Row>
         <Steps current={this.state.current-1}>
           {
             steps.map(item => <Step 

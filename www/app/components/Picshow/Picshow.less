@@ -5,7 +5,10 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    background-color: rgb(190, 190, 190);
+
+    .breadNav {
+        padding-bottom: 10px !important;
+    }
 
     *{
         box-sizing: border-box;
@@ -13,14 +16,13 @@
     }
 
     .bigImgBox{
-        padding-right:@rightPartW;
-        height: 100%;
+        height: 600px;
         .inner{
             position: relative;
             height: 100%;
            .bigImg{
-               width: 90%;
-               height: 90%;
+               width: 100%;
+               height: 100%;
                position: absolute;
                top: 50%;
                left: 50%;
@@ -72,10 +74,9 @@
     }
 
     .rightPart{
-        position: absolute;
         right: 0;
         top: 0;
-        width: @rightPartW;
+        width: 100%;
         height: 100%;
         padding: @rightPartP;
 
@@ -84,7 +85,6 @@
             h1{
                 font-size: 26px;
                 line-height: 30px;
-                color: white;
     
                 small{
                     font-size: 16px;
@@ -92,32 +92,30 @@
             }
     
             h3{
-                color: white;
                 font-size: 16px;
-    
             }
         }
         .album{
+            display: block;
+            width: 100%;
             overflow: hidden;
             padding-top: 20px;
             text-align: center;
             ul{
-                position: relative;
-                left: -20px;
-                float: left;
+                display: flex;
+                flex-flow: row wrap;
+                width: 100%;
+                padding-left: 0;
                 li{
                     color: black;
-                    float: left;
-                    right: 50%;
+                    list-style: none;
                     width: 50%;
                     height: 60px;
-                    background-color: white;
                     text-align: center;
                     line-height: 60px;
                     font-size: 16px;
                     margin-bottom: 6px;
                     cursor: pointer;
-                    display: inline;
 
                     &:nth-child(2n){
                         border-left: 3px solid black;
@@ -127,7 +125,7 @@
                     }
 
                     &.cur{
-                        background-color: gold;
+                        background-color: @primary-color;
                     }
 
                 }
@@ -138,7 +136,6 @@
             h3{
                 font-size: 16px;
                 line-height: 26px;
-                color: white;
             }
             .contentbox{
                 height: 100px;
@@ -157,8 +154,7 @@
 
                     li{
                       &.cur{
-                        background-color:@purple-6;
-                        // background-color:gold;
+                        background-color:@primary-color;;
                       }
                     }
                 }
@@ -186,20 +182,23 @@
          overflow: hidden;
          padding-top: 30px;
          .unit{
-             width: 2000px;
+             width: 100%;
              position: relative;
              transition: all 0.6s ease 0s;
             ul{
-                list-style: none;
+                display: flex;
+                flex-flow: row wrap;
+                width: 100%;
+                padding-left: 0;
                 float: left;
-                width: @rightPartW - @rightPartP*2;
                 margin-bottom: 6px;
                 height: 200px;
                 position: relative;
-                left: -20px;
+                overflow: hidden;
                 li{
-                    float: left;
-                    width: 50%;
+                    list-style: none;
+                    width: 49%;
+                    height: 50%;
                     background-color: aqua;
                     &:nth-child(2n){
                         border-left: 3px solid black;
@@ -256,7 +255,7 @@
                 }
 
                 &.cur{
-                    background-color: gold;
+                    background-color: @primary-color;;
                 }
 
 

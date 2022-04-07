@@ -15,16 +15,7 @@ export default class SalePage extends React.Component {
     return (
       <App>
         <Layout>
-            {/* <Sider width={200} style={{ background: '#fff' }}>
-                <Menu
-                mode="inline"
-                defaultSelectedKeys={['1']}
-                defaultOpenKeys={['sub1']}
-                style={{ height: '100%', borderRight: 0 }}
-                >
-                </Menu>
-            </Sider> */}
-            <Layout style={{ padding: '0 30px 30px' }}>
+            <Layout style={{ padding: '0 30px 0 30px' }}>
                 <Content style={{background: '#fff', padding: 24, margin: 0, minHeight: 280,}}>
                     {this.props.children}
                 </Content>

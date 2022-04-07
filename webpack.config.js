@@ -10,6 +10,7 @@ module.exports = {
         filename: "bundle.js", //final file
         publicPath:"",//add prefix in the url,using for production
     },
+    watch:true,
     module: {
         rules: [
             {

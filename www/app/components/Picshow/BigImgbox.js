@@ -30,7 +30,6 @@ class BigImgbox extends React.Component {
     //*********** preload imgs to improve the user exprierence************
     //get all imgs to one arr
     const allArr=nextProps.imgs.view.concat(nextProps.imgs.inner,nextProps.imgs.engine,nextProps.imgs.more);
-    console.log(allArr)
     //find the current img position that user click in the allArr
     const currImgIndex=allArr.indexOf(nextProps.imgs[nextProps.nowalbum][nextProps.nowidx])
     //the end of the loop
@@ -42,7 +41,6 @@ class BigImgbox extends React.Component {
       new Array(nextProps.imgs.engine.length).fill("engine"),
       new Array(nextProps.imgs.more.length).fill("more")
       )
-      console.log(dirarr)
     
     //now load next five imgs
     for(var i=currImgIndex;i<end;i++){
@@ -89,8 +87,6 @@ class BigImgbox extends React.Component {
               </div>
               
         </div>
-
-
       </div>
     )
   }

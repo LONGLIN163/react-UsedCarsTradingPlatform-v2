@@ -40,8 +40,6 @@ class TableBox extends React.Component {
     //use the order of cols in state to change or define table columns
     const columnsArr = this.state.cols.map(item => columns[item])
 
-    console.log("columnsArr******",columnsArr)
-
     //receive new cols order from child(drag tag),change cols(for ok button)
     var tempCol=[];
     const getColsInfo=(colsOrder)=>{
