@@ -1,12 +1,21 @@
 @import '../../../../node_modules/antd/dist/antd.less';
 @rightPartW:300px;
 @rightPartP:20px;
+
+.myNav{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
 .picshow{
     position: absolute;
     width: 100%;
     height: 100%;
+    top: 100px;
 
     .breadNav {
+        padding-left: 10px;
         padding-bottom: 10px !important;
     }
 
@@ -16,21 +25,21 @@
     }
 
     .bigImgBox{
-        height: 600px;
+        height: 650px;
         .inner{
-            position: relative;
             height: 100%;
+            margin: 30px;
            .bigImg{
-               width: 100%;
-               height: 100%;
+               height: 80%;
                position: absolute;
                top: 50%;
                left: 50%;
+               margin: 20px;
                transform: translate(-50%,-50%);
            }
 
            .leftbtn{
-               position: absolute;
+               position: relative;
                width:50%;
                height:100%;
                top:0;
@@ -61,14 +70,14 @@
 
            .numbox{
                position: absolute;
-               bottom: 20px;
+               bottom: 80px;
                left: 0px;
                width: 200px;
                height: 50px;
                background-color:white;
                text-align: center;
                line-height: 50px;
-               font-size: 50px;
+               font-size: 40px;
            }
         }
     }
@@ -139,17 +148,17 @@
             }
             .contentbox{
                 height: 100px;
-                background-color: #bababa;
+                background-color: #001529;
                 position: relative;
                 overflow: hidden;
-
+                color: white;
                 ul{
                     list-style-type: none;
                     line-height: 200%;
                     position: absolute;
                     z-index: 100;
                     position: relative;
-                    left: -20px;
+                    left: -30px;
                     float: left;
 
                     li{
@@ -164,7 +173,7 @@
                     top:0;
                     width: 20px;
                     height: 100%;
-                    background-color: white;
+                    background-color:#e6e6e6;
 
                     b{
                         position: absolute;
@@ -188,6 +197,7 @@
             ul{
                 display: flex;
                 flex-flow: row wrap;
+                justify-content: space-between;
                 width: 100%;
                 padding-left: 0;
                 float: left;
@@ -199,13 +209,6 @@
                     list-style: none;
                     width: 49%;
                     height: 50%;
-                    background-color: aqua;
-                    &:nth-child(2n){
-                        border-left: 3px solid black;
-                    }
-                    &:nth-child(2n+1){
-                        border-left: 3px solid black;
-                    }
                     margin-bottom: 6px;
                     position: relative;
                     
@@ -241,18 +244,8 @@
                 float: left;
                 height: 8px;
                 background-color: rgb(110, 110, 110);
-                border-left: 3px solid black;
-                border-right: 3px solid black;
                 cursor: pointer;
                 margin-top: 20px;
-
-                &:first-child{
-                    border-left: none;
-                }
-
-                &:last-child{
-                    border-right: none;
-                }
 
                 &.cur{
                     background-color: @primary-color;;

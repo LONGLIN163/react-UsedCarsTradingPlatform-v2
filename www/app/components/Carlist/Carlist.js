@@ -21,8 +21,8 @@ class Carlist extends React.Component {
     return (
       <BuyPage>
 
-          <Row className="breadNav" type="flex" justify="left">
-            <Col className="comm-left" xs={24} sm={24} md={16} lg={18} xl={14}  >
+          <Row className="breadNav">
+            <Col xs={24} sm={24} md={16} lg={18} xl={14}  >
               <div>
                 <Breadcrumb.Item href="">
                    <Icon type="unordered-list" /> All Cars 
@@ -31,7 +31,6 @@ class Carlist extends React.Component {
             </Col>
           </Row>
           
-
           <div>
             <FilterBox></FilterBox>
             <TableBox></TableBox>

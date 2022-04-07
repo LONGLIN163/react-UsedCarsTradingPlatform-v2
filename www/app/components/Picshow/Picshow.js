@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import {connect} from 'dva'
 
 import "./Picshow.less"
@@ -18,13 +18,12 @@ class Picshow extends React.Component {
   }
   render() {
     return (
-      <div className="picshow">
 
-        <App></App>
-
-        <div  style={{ padding: '20px 20px 0 20px' }}>
+      <Fragment>
+        <div className="myNav">
+            <App></App>
           <Row className="breadNav">
-              <Col className="comm-left" xs={24} sm={24} md={16} lg={18} xl={14}  >
+              <Col xs={24} sm={24} md={16} lg={18} xl={14}  >
                 <div>
                   <Breadcrumb.Item href="">
                     <Icon type="profile" /> Car Details 
@@ -37,7 +36,8 @@ class Picshow extends React.Component {
           </Row>
         </div>
 
-        <div>
+        <div className="picshow">
+
           <Row>
               <Col xs={24} sm={24} md={16} lg={18} xl={20}  >
                   <BigImgbox></BigImgbox>
@@ -52,7 +52,9 @@ class Picshow extends React.Component {
               </Col>
           </Row>
         </div>
-      </div>
+
+      </Fragment>
+
     )
   }
 }

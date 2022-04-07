@@ -28,7 +28,7 @@ class CarlistKmSlider extends React.Component {
         <div>
 
             <Row>
-                <Col span={9}>
+                <Col xs={24} sm={24} md={12} lg={12} xl={12}>
                 
                         <Slider 
                             range 
@@ -56,32 +56,33 @@ class CarlistKmSlider extends React.Component {
                         
                 </Col>
 
-                {/* <Col span={3}>
-                    {this.state.min}-{this.state.max}tkm   
-                </Col> */}
-                <Col span={1}></Col>
+                <Col xs={24} sm={24} md={12} lg={12} xl={12}>
+                    <Row>
+                        <Col span={3}></Col>
+                        <Col span={7}>
+                            <Button onClick={(value)=>{
+                                this.props.dispatch({"type":"carlist/changeFilter","propsname":"km","value":[0,100000]})
+                                this.setState({
+                                    km:[0,10]
+                                })}}>0-10</Button> 
+                        </Col>
+                        <Col span={7}>
+                            <Button onClick={(value)=>{
+                                this.props.dispatch({"type":"carlist/changeFilter","propsname":"km","value":[100000,200000]})
+                                this.setState({
+                                    km:[10,20]
+                                })}}>10-20</Button> 
+                        </Col>
+                        <Col span={7}>
+                            <Button onClick={(value)=>{
+                                this.props.dispatch({"type":"carlist/changeFilter","propsname":"km","value":[200000,300000]})
+                                this.setState({
+                                    km:[20,30]
+                                })}}>20-30</Button> 
+                        </Col>
+                    </Row>
+                </Col>
 
-                <Col span={3}>
-                    <Button onClick={(value)=>{
-                        this.props.dispatch({"type":"carlist/changeFilter","propsname":"km","value":[0,100000]})
-                        this.setState({
-                            km:[0,10]
-                        })}}>0-10</Button> 
-                </Col>
-                <Col span={3}>
-                    <Button onClick={(value)=>{
-                        this.props.dispatch({"type":"carlist/changeFilter","propsname":"km","value":[100000,200000]})
-                        this.setState({
-                            km:[10,20]
-                        })}}>10-20</Button> 
-                </Col>
-                <Col span={3}>
-                    <Button onClick={(value)=>{
-                        this.props.dispatch({"type":"carlist/changeFilter","propsname":"km","value":[200000,300000]})
-                        this.setState({
-                            km:[20,30]
-                        })}}>20-30</Button> 
-                </Col>
             </Row>
 
 

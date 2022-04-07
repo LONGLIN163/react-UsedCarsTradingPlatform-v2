@@ -77,11 +77,11 @@ class Smallpics extends React.Component {
                   showUlLis()
                 }
               </div>
-              <div className="pageNav" ref="pageNav">
+              {/* <div className="pageNav" ref="pageNav">
                 {
                   showSpans()
                 }
-              </div>
+              </div> */}
       </div>
     )
   }

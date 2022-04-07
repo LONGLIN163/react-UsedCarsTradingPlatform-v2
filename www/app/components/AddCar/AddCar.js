@@ -121,8 +121,8 @@ class AddCar extends React.Component {
 
     return (
       <SalePage>
-          <Row className="breadNav" type="flex" justify="left">
-            <Col className="comm-left" xs={24} sm={24} md={16} lg={18} xl={14}  >
+          <Row className="breadNav">
+            <Col xs={24} sm={24} md={16} lg={18} xl={14}  >
               <div>
                 <Breadcrumb.Item href="">
                     <Icon type="edit" /> Sell Cars             

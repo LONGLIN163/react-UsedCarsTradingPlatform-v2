@@ -26,7 +26,7 @@ class CarlistPriceSlider extends React.Component {
         <div>
 
             <Row>
-                <Col span={9}>
+                <Col xs={24} sm={24} md={12} lg={12} xl={12}>
                 
                         <Slider 
                             range 
@@ -50,40 +50,41 @@ class CarlistPriceSlider extends React.Component {
                         
                 </Col>
 
-                {/* <Col span={2}>
-                    {this.state.min}-{this.state.max}   
-                </Col> */}
+                <Col xs={24} sm={24} md={12} lg={12} xl={12}>
+                    <Row>
+                        <Col span={2}></Col>
+                        <Col span={4}>
+                            <Button onClick={(value)=>{
+                                //alert(123)
+                                this.props.dispatch({"type":"carlist/changeFilter","propsname":"price","value":[0,20]})
+                                this.setState({
+                                    price:[0,20]
+                                })}}>0-20</Button> 
+                        </Col>
+                        <Col span={6}>
+                            <Button onClick={(value)=>{
+                                this.props.dispatch({"type":"carlist/changeFilter","propsname":"price","value":[20,50]})
+                                this.setState({
+                                    price:[20,50]
+                                })}}>20-50</Button> 
+                        </Col>
+                        <Col span={6}>
+                            <Button onClick={(value)=>{
+                                this.props.dispatch({"type":"carlist/changeFilter","propsname":"price","value":[50,70]})
+                                this.setState({
+                                    price:[50,70]
+                                })}}>50-70</Button> 
+                        </Col>
+                        <Col span={6}>
+                            <Button onClick={(value)=>{
+                                this.props.dispatch({"type":"carlist/changeFilter","propsname":"price","value":[70,100]})
+                                this.setState({
+                                    price:[70,100]
+                                })}}>70-100</Button> 
+                        </Col>
+                    </Row>
+                </Col>
 
-                <Col span={1}></Col>
-                <Col span={3}>
-                    <Button onClick={(value)=>{
-                        //alert(123)
-                        this.props.dispatch({"type":"carlist/changeFilter","propsname":"price","value":[0,20]})
-                        this.setState({
-                            price:[0,20]
-                        })}}>0-20</Button> 
-                </Col>
-                <Col span={3}>
-                    <Button onClick={(value)=>{
-                        this.props.dispatch({"type":"carlist/changeFilter","propsname":"price","value":[20,50]})
-                        this.setState({
-                            price:[20,50]
-                        })}}>20-50</Button> 
-                </Col>
-                <Col span={3}>
-                    <Button onClick={(value)=>{
-                        this.props.dispatch({"type":"carlist/changeFilter","propsname":"price","value":[50,70]})
-                        this.setState({
-                            price:[50,70]
-                        })}}>50-70</Button> 
-                </Col>
-                <Col span={3}>
-                    <Button onClick={(value)=>{
-                        this.props.dispatch({"type":"carlist/changeFilter","propsname":"price","value":[70,100]})
-                        this.setState({
-                            price:[70,100]
-                        })}}>70-100</Button> 
-                </Col>
             </Row>
 
 

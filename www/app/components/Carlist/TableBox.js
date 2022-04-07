@@ -44,15 +44,14 @@ class TableBox extends React.Component {
     var tempCol=[];
     const getColsInfo=(colsOrder)=>{
       tempCol=colsOrder;
-      console.log("tempCol:",tempCol)
     }
     return <div className="tableBox" ref="tableBox">
       <Row>
-        <Col span={6}>
+        <Col span={12}>
           <h3>{this.props.count} cars match the filter criteria.current page:{this.props.pageInfo.page}/{this.props.pageInfo.pagesize}</h3>
         </Col>
-        <Col span={12}></Col>
-        <Col span={2}>
+        <Col span={4}></Col>
+        <Col span={4}>
           <Button
             type="primary"
             shape="circle"
@@ -66,7 +65,7 @@ class TableBox extends React.Component {
         </Col>
         <Col span={4}>
           <Button type="primary" shape="circle" icon="search" />
-            </Col>
+        </Col>
       </Row>
 
       <Modal
